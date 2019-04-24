@@ -24,5 +24,10 @@ namespace ProjektniZadatak
             InitializeComponent();
             zivotinje.ItemsSource = Species.Animals;
         }
+
+        private void Back(object sender, RoutedEventArgs e)
+        {
+            this.Visibility = Visibility.Hidden;
+        }
     }
 }

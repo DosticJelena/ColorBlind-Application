@@ -168,5 +168,20 @@
   <ItemGroup>
     <Resource Include="Prozori\map.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="dog-paw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="left-arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Prozori\dog-paw.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

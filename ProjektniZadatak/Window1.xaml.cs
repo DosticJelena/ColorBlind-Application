@@ -43,20 +43,50 @@ namespace ProjektniZadatak
 
             Application.Current.Shutdown();
         }
-
-        private void Hover(object sender, MouseEventArgs e)
+ 
+        private void HoverT(object sender, MouseEventArgs e)
         {
-            //btnAS.Background.Opacity = 100;
+            btnTutorial.Foreground = new SolidColorBrush(Colors.Black);
         }
 
-        private void Hover_Exit(object sender, MouseEventArgs e)
+        private void HoverTLeave(object sender, MouseEventArgs e)
         {
-            //btnAS.Background.Opacity = 50;
+            btnTutorial.Foreground = new SolidColorBrush(Colors.White);
         }
 
-        private void Hover1(object sender, MouseEventArgs e)
+        private void HoverAS(object sender, MouseEventArgs e)
         {
-            //btnAS.Background.Opacity = 100;
+            btnAS.Foreground = new SolidColorBrush(Colors.Black);
+        }
+
+        private void HoverASLeave(object sender, MouseEventArgs e)
+        {
+            btnAS.Foreground = new SolidColorBrush(Colors.White);
+        }
+
+        private void HoverH(object sender, MouseEventArgs e)
+        {
+            btnHelp.Foreground = new SolidColorBrush(Colors.Black);
+        }
+
+        private void HoverHLeave(object sender, MouseEventArgs e)
+        {
+            btnHelp.Foreground = new SolidColorBrush(Colors.White);
+        }
+
+        private void HoverM(object sender, MouseEventArgs e)
+        {
+            btnM.Foreground = new SolidColorBrush(Colors.Black);
+        }
+
+        private void HoverMLeave(object sender, MouseEventArgs e)
+        {
+            btnM.Foreground = new SolidColorBrush(Colors.White);
+        }
+
+        private void Close(object sender, RoutedEventArgs e)
+        {
+            System.Windows.Application.Current.Shutdown();
         }
     }
 

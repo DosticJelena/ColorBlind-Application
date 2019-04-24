@@ -5,50 +5,53 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjektniZadatak"
         mc:Ignorable="d"
-        Title="Animal App" Height="500" Width="800" Icon="map.jpg" ResizeMode="NoResize" WindowState="Maximized" >
+        Title="Animal App" Height="500" Width="800" Icon="dog-paw.png" ResizeMode="NoResize" WindowState="Maximized" WindowStyle="None" >
     <Window.Background>
         <ImageBrush ImageSource="zebra1.jpg"/>
     </Window.Background>
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="3*" />
             <ColumnDefinition Width="3*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
             <RowDefinition Height="2*" />
             <RowDefinition Height="1*" />
             <RowDefinition Height="1*" />
         </Grid.RowDefinitions>
-        <DockPanel Grid.ColumnSpan="2" Grid.Row="0">
-            <DockPanel.Background>
-                <ImageBrush/>
-            </DockPanel.Background>
-            <Label DockPanel.Dock="Top" Foreground="#FFFAFAFA" FontSize="22" Margin="30,0,600,0" Background="Black" Padding="30,30,5,10" Height="80" Width="150" HorizontalAlignment="Left">Welcome!</Label>
-            <Rectangle DockPanel.Dock="Bottom" Height="10"></Rectangle>
-        </DockPanel>
-        <Button Grid.Column="0" Grid.Row="1" Margin="0" BorderThickness="0,0,1,1" Foreground="White" FontSize="20" FontFamily="Microsoft YaHei UI Light">
+
+
+        <Rectangle Grid.Column="1" Grid.Row="0" Fill="Black" Width="150" HorizontalAlignment="Right"></Rectangle>
+        <Rectangle Grid.Column="0" Grid.Row="0" Fill="Black" Width="300" HorizontalAlignment="Left"></Rectangle>
+        <Label Grid.Column="0" Grid.Row="0" Foreground="White" FontFamily="Microsoft YaHei UI Light" FontSize="36" Padding="30,5,5,5" VerticalContentAlignment="Center">Naziv aplikacije</Label>
+        <Button Grid.Column="1" Grid.Row="0" Width="50" Height="50" HorizontalContentAlignment="Center" HorizontalAlignment="Right" Margin="0,0,50,0" BorderThickness="0" Cursor="Hand" Background="White" Content="X" FontFamily="Trebuchet MS" FontSize="24" Click="Close"/>
+
+        <!-- Dugmici -->
+        <Button Name="btnTutorial" Grid.Column="0" Grid.Row="2" Margin="0" BorderThickness="0,0,1,1" Foreground="White" FontSize="28" FontFamily="Microsoft YaHei UI Light" MouseEnter="HoverT" MouseLeave="HoverTLeave" Cursor="Hand">
             <Button.Background>
                 <SolidColorBrush Color="#FF020202" Opacity="0.75"/>
             </Button.Background>
-            Tutorial
+            Uputstvo
         </Button>
-        <Button Grid.Column="1" Grid.Row="1" Margin="0" BorderThickness="0,0,0,1" FontFamily="Microsoft YaHei UI Light" FontSize="20" Foreground="White" Click="Button_Click_1">
+        <Button Name="btnM" Grid.Column="1" Grid.Row="2" Margin="0" BorderThickness="0,0,0,1" FontFamily="Microsoft YaHei UI Light" FontSize="28" Foreground="White" Click="Button_Click_1" MouseEnter="HoverM" MouseLeave="HoverMLeave" Cursor="Hand">
             <Button.Background>
                 <SolidColorBrush Color="Black" Opacity="0.75"/>
             </Button.Background>
-            World Map
+            Mapa Sveta
         </Button>
-        <Button Name="btnAS" Grid.Column="0" Grid.Row="2" Margin="0" BorderThickness="0,0,1,1" Foreground="White" FontSize="20" FontFamily="Microsoft YaHei UI Light" Click="Button_Click" MouseEnter="Hover" MouseLeave="Hover_Exit" MouseMove="Hover1">
+        <Button Name="btnAS" Grid.Column="0" Grid.Row="3" Margin="0" BorderThickness="0,0,1,1" Foreground="White" FontSize="28" FontFamily="Microsoft YaHei UI Light" Click="Button_Click" MouseEnter="HoverAS" MouseLeave="HoverASLeave" Cursor="Hand">
             <Button.Background>
                 <SolidColorBrush Color="Black" Opacity="0.75"/>
             </Button.Background>
-            Animal Species
+            Zivotinjske vrste
         </Button>
-        <Button Grid.Column="1" Grid.Row="2" Margin="0" BorderThickness="0,0,0,1" Foreground="White" FontSize="20" FontFamily="Microsoft YaHei UI Light">
+        <Button Name="btnHelp" Grid.Column="1" Grid.Row="3" Margin="0" BorderThickness="0,0,0,1" Foreground="White" FontSize="28" FontFamily="Microsoft YaHei UI Light" MouseEnter="HoverH" MouseLeave="HoverHLeave" Cursor="Hand">
             <Button.Background>
                 <SolidColorBrush Color="Black" Opacity="0.75"/>
             </Button.Background>
-            Help?
+            Pomoc?
         </Button>
     </Grid>
 </Window>

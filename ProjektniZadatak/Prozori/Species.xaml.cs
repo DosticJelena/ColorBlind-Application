@@ -67,19 +67,7 @@ namespace ProjektniZadatak
             {
                 Animals = new ObservableCollection<Animal>();
                 //Tip tipziv = Tip;
-                Animal prva = new Animal {
-                    Id = 1, Ime = "Prva",
-                    Opis = "Opis1",
-                    StUgr = Animal.StatusUgrozenosti.KriticnoUgrozena,
-                    StTur = Animal.TuristickiStatus.DelimicnoHabituirana,
-                    Opasna = false,
-                    NaseljeniRegion = true,
-                    CrvenaLista = false,
-                    GodisnjiPrihod = 123.43,
-                    // TipZiv = tipziv
-                }; 
-                Animals.Add(prva);
-
+                
                 Tipovi = new ObservableCollection<Model.Tip>();
                 Etikete = new ObservableCollection<Model.Etiketa>();
 
@@ -87,12 +75,47 @@ namespace ProjektniZadatak
                 Tipovi.Add(new Model.Tip { Id = "2", Ime = "Kopnene", Opis = "Zive na kopnu" });
                 Tipovi.Add(new Model.Tip { Id = "3", Ime = "Vodene", Opis = "Zive u vodi" });
 
-                Etikete.Add(new Model.Etiketa { Id = 1, Opis = "Pernate zivotinje" });
-                Etikete.Add(new Model.Etiketa { Id = 2, Opis = "Zive na kopnu" });
-                Etikete.Add(new Model.Etiketa { Id = 3, Opis = "Zive u vodi" });
+                Etikete.Add(new Model.Etiketa { Id = 1, Opis = "1" });
+                Etikete.Add(new Model.Etiketa { Id = 2, Opis = "2" });
+                Etikete.Add(new Model.Etiketa { Id = 3, Opis = "3" });
+
+
+                Animal prva = new Animal
+                {
+                    Id = "1",
+                    Ime = "Prva",
+                    Opis = "Opis1",
+                    StUgr = Animal.StatusUgrozenosti.KriticnoUgrozena,
+                    StTur = Animal.TuristickiStatus.DelimicnoHabituirana,
+                    Opasna = false,
+                    NaseljeniRegion = true,
+                    CrvenaLista = false,
+                    GodisnjiPrihod = "123.43",
+                    TipZiv = Tipovi[0],
+                    Image = new BitmapImage(new Uri("C:\\Users\\jelen\\Pictures\\Projekat\\fish.jpg")),
+                    Datum = new DateTime(2018, 6, 7)
+            };
+                Animal druga = new Animal
+                {
+                    Id = "2",
+                    Ime = "Druga",
+                    Opis = "Opis2",
+                    StUgr = Animal.StatusUgrozenosti.Ranjiva,
+                    StTur = Animal.TuristickiStatus.Habituirana,
+                    Opasna = true,
+                    NaseljeniRegion = true,
+                    CrvenaLista = false,
+                    GodisnjiPrihod = "2323.51",
+                    TipZiv = Tipovi[2],
+                    Image = new BitmapImage(new Uri("C:\\Users\\jelen\\Pictures\\Projekat\\land.jpg")),
+                    Datum = new DateTime(2018, 6, 5)
+                };
+
+                Animals.Add(prva);
+                Animals.Add(druga);
 
                 TipZivotinje.ItemsSource = Tipovi;
-                TipZivotinje.SelectedIndex = 0;
+                //TipZivotinje.SelectedIndex = 0;
                 EtiketeZivotinje.ItemsSource = Etikete;
                 //EtiketeZivotinje.SelectedIndex = 0;
             }
@@ -101,6 +124,7 @@ namespace ProjektniZadatak
           
         }
         
+        // Dugme za prikaz panela za dodavanje zivotinje
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
            
@@ -109,7 +133,9 @@ namespace ProjektniZadatak
             RightRectangle.Visibility = Visibility.Visible;
             btnDodajUListu.Visibility = Visibility.Visible;
             btnAzurirajListu.Visibility = Visibility.Hidden;
+            btnObrisi.Visibility = Visibility.Hidden;
 
+            IdZivotinje.Text = "";
             ImeZivotinje.Text = "";
             OpisZivotinje.Text = "";
             StUgrZivotinje.SelectedItem = null;
@@ -118,10 +144,17 @@ namespace ProjektniZadatak
             cbNaseljeniRegion.IsChecked = false;
             cbCrvenaLista.IsChecked = false;
             pickDatum.SelectedDate = null;
+            SlikaZivotinje.Source = null;
+            rctSlika.Visibility = Visibility.Visible;
+            godPrihod.Text = "";
+            EtiketeZivotinje.SelectedItem = null;
+            TipZivotinje.SelectedItem = null;
 
-            ImeZivotinje.Focus();
+            IdZivotinje.Focus();
         }
 
+
+        // Dugmici za dodavanje, azuriranje i brisanje zivotinje iz liste
         private void Dodavanje_Zivotinje(object sender, RoutedEventArgs e)
         {
             if (ImeZivotinje.Text != "" && OpisZivotinje.Text!="" && StTurZivotinje.Text !="" && StUgrZivotinje.Text!="")
@@ -135,7 +168,7 @@ namespace ProjektniZadatak
                 BitmapSource bitmapSource = decoder.Frames[0];
 
                 Animals.Add(new Animal {
-                    Id = 3,
+                    Id = IdZivotinje.Text,
                     Ime = ImeZivotinje.Text,
                     Opis = OpisZivotinje.Text,
                     StUgr = st2,
@@ -143,9 +176,10 @@ namespace ProjektniZadatak
                     Opasna = (bool)cbOpasna.IsChecked,
                     NaseljeniRegion = (bool)cbNaseljeniRegion.IsChecked,
                     CrvenaLista = (bool)cbCrvenaLista.IsChecked,
-                    GodisnjiPrihod = 123.43,
+                    GodisnjiPrihod = godPrihod.Text,
                     Datum = (DateTime)pickDatum.SelectedDate,
-                    Image = bitmapSource
+                    Image = bitmapSource,
+                    TipZiv = (Tip)TipZivotinje.SelectedItem
                 });
                
                 RightRectangle.Visibility = Visibility.Hidden;
@@ -155,9 +189,16 @@ namespace ProjektniZadatak
 
         private void Azuriranje_Zivotinje(object sender, RoutedEventArgs e)
         {
+            
+        }
+
+        private void Brisanje_Zivotinje(object sender, RoutedEventArgs e)
+        {
 
         }
 
+
+        // Dugmici za dodavanje slike zivotinje i ikonice tipa
         private void Add_Image(object sender, RoutedEventArgs e)
         {
             OpenFileDialog op = new OpenFileDialog();
@@ -189,46 +230,69 @@ namespace ProjektniZadatak
 
         }
 
+
+        //Dugmici za otvaranje panela za dodavanje etikete i tipa
         private void Nova_Etiketa(object sender, RoutedEventArgs e)
         {
             RightRectangle.Visibility = Visibility.Hidden;
             PanelTip.Visibility = Visibility.Hidden;
             EtiketaPanel.Visibility = Visibility.Visible;
-            //Prozori.EtiketaProzor et = new Prozori.EtiketaProzor();
+
+            idEtiketa.Text = "";
+            opisEtiketa.Text = "";
+            cbBoja.SelectedColor = null;
+
+            idEtiketa.Focus();
+
             Prozori.EtiketaProzor.brojacEtikete++;
-            //et.ShowDialog();
         }
 
         private void Novi_Tip(object sender, RoutedEventArgs e)
         {
-            //TipProzor t = new TipProzor();
             RightRectangle.Visibility = Visibility.Hidden;
             EtiketaPanel.Visibility = Visibility.Hidden;
             PanelTip.Visibility = Visibility.Visible;
+
+            rctSlikaa.Visibility = Visibility.Visible;
+            idTipa.Text = "";
+            imeTipa.Text = "";
+            opisTipa.Text = "";
+            Ikonica.Source = null;
+
+            idTipa.Focus();
             
             TipProzor.brojacTip++;
-            //t.ShowDialog();
         }
 
-        
 
+        // Selektovani element liste
         private void Selekcija_Liste(object sender, SelectionChangedEventArgs e)
         {
             Animal animal = (Animal)zivotinje.SelectedItems[0];
+            IdZivotinje.Text = animal.Id;
             ImeZivotinje.Text = animal.Ime;
             OpisZivotinje.Text = animal.Opis;
-            StUgrZivotinje.SelectedItem = animal.StUgr;
-            StTurZivotinje.SelectedItem = animal.StTur;
+            StUgrZivotinje.Text = animal.StUgr.ToString();
+            StTurZivotinje.Text = animal.StTur.ToString();
             cbOpasna.IsChecked = animal.Opasna;
             cbNaseljeniRegion.IsChecked = animal.NaseljeniRegion;
             cbCrvenaLista.IsChecked = animal.CrvenaLista;
             pickDatum.SelectedDate = animal.Datum;
+            SlikaZivotinje.Source = animal.Image;
+            godPrihod.Text = animal.GodisnjiPrihod;
+            TipZivotinje.SelectedItem = animal.TipZiv;
 
+            rctSlika.Visibility = Visibility.Hidden;
             btnDodajUListu.Visibility = Visibility.Hidden;
             btnAzurirajListu.Visibility = Visibility.Visible;
+            btnObrisi.Visibility = Visibility.Visible;
             RightRectangle.Visibility = Visibility.Visible;
+            PanelTip.Visibility = Visibility.Hidden;
+            EtiketaPanel.Visibility = Visibility.Hidden;
         }
 
+
+        // Dugmici za dodavanje etikete i tipa u listu etiketa i listu tipova
         private void Dodaj_Etiketu(object sender, RoutedEventArgs e)
         {
             if (!idEtiketa.Equals("") && !opisEtiketa.Equals(""))
@@ -258,6 +322,42 @@ namespace ProjektniZadatak
                 PanelTip.Visibility = Visibility.Hidden;
             }
         }
-        
+
+
+        // Uredjivanje dugmica pri prelazu misa
+        private void HoverZ(object sender, MouseEventArgs e)
+        {
+            btnZ.Foreground = new SolidColorBrush(Colors.Black);
+        }
+
+        private void HoverZLeave(object sender, MouseEventArgs e)
+        {
+            btnZ.Foreground = new SolidColorBrush(Colors.White);
+        }
+
+        private void HoverT(object sender, MouseEventArgs e)
+        {
+            btnT.Foreground = new SolidColorBrush(Colors.Black);
+        }
+
+        private void HoverTLeave(object sender, MouseEventArgs e)
+        {
+            btnT.Foreground = new SolidColorBrush(Colors.White);
+        }
+
+        private void HoverE(object sender, MouseEventArgs e)
+        {
+            btnE.Foreground = new SolidColorBrush(Colors.Black);
+        }
+
+        private void HoverELeave(object sender, MouseEventArgs e)
+        {
+            btnE.Foreground = new SolidColorBrush(Colors.White);
+        }
+
+        private void Back(object sender, RoutedEventArgs e)
+        {
+            this.Visibility = Visibility.Hidden;
+        }
     }
 }

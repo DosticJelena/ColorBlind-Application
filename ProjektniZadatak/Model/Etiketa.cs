@@ -36,6 +36,7 @@ namespace ProjektniZadatak.Model
                 }
             }
         }
+
         private Colors _boja;
         public Colors Boja
         {
@@ -52,6 +53,7 @@ namespace ProjektniZadatak.Model
                 }
             }
         }
+
         private string _opis;
         public string Opis
         {

@@ -5,31 +5,45 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjektniZadatak"
         mc:Ignorable="d"
-        Title="Map" Height="450" Width="800" ResizeMode="NoResize" WindowState="Maximized">
+        Title="Map" Height="450" Width="800" Icon="dog-paw.png" ResizeMode="NoResize" WindowState="Maximized" WindowStyle="None">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"></ColumnDefinition>
             <ColumnDefinition Width="4*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+        </Grid.RowDefinitions>
 
-        <ListView Grid.Column="0" Name="zivotinje" BorderBrush="Black" FontFamily="Microsoft JhengHei Light" FontSize="16">
+        <Grid Grid.Row="0" Grid.Column="0" Background="Black">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="3*"/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Padding="10,10,5,5" Margin="10" BorderThickness="0" Cursor="Hand" Click="Back">
+                <Button.Background>
+                    <ImageBrush ImageSource="/ProjektniZadatak;component/left-arrow.png" Stretch="Uniform"/>
+                </Button.Background>
+            </Button>
+        </Grid>
+        
+        <ListView Grid.Column="0" Grid.Row="1" Name="zivotinje" BorderBrush="Black" FontFamily="Microsoft JhengHei Light" FontSize="16">
             <ListView.Background>
                 <SolidColorBrush Color="Black" Opacity="0.9"/>
             </ListView.Background>
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <WrapPanel>
-
-                        <TextBlock Text="  " FontSize="19" Foreground="White"/>
-                        <TextBlock Text="{Binding Ime}" FontSize="19" Foreground="White"/>
-
+                        <Image Source="{Binding Image}" Width="50" Height="50"/>
+                        <TextBlock Text="  " FontSize="25" Foreground="White" Padding="0,10,0,0"/>
+                        <TextBlock Text="{Binding Ime}" FontSize="25" Foreground="White" Padding="0,10,0,0"/>
                     </WrapPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
-
         </ListView>
         
-        <Rectangle Grid.Column="1">
+        <Rectangle Grid.Column="1" Grid.RowSpan="2">
             <Rectangle.Fill>
                 <ImageBrush ImageSource="map.jpg"/>
             </Rectangle.Fill>

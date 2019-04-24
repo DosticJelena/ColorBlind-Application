@@ -39,7 +39,7 @@ namespace ProjektniZadatak.Validation
                 int r;
                 int.TryParse(s, out r);
                 
-                if (Species.Etikete.Contains(new Model.Etiketa { Id = r })) ;
+                if (Species.Etikete.Contains(new Model.Etiketa { Id = r }));
                 {
 
                 }

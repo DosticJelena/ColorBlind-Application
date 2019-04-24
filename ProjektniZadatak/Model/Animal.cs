@@ -24,8 +24,8 @@ namespace ProjektniZadatak.Model
         public enum StatusUgrozenosti { KriticnoUgrozena = 5, Ugrozena = 4, Ranjiva = 3, ZavisnaOdStanista = 2, BlizuRizika = 1, MinRizika = 0 };
         public enum TuristickiStatus { Izolovana, DelimicnoHabituirana, Habituirana };
 
-        private int _id;
-        public int Id
+        private string _id;
+        public string Id
         {
             get
             {
@@ -40,6 +40,7 @@ namespace ProjektniZadatak.Model
                 }
             }
         }
+
         private string _ime;
         public string Ime
         {
@@ -56,6 +57,7 @@ namespace ProjektniZadatak.Model
                 }
             }
         }
+
         private string _opis;
         public string Opis
         {
@@ -89,6 +91,7 @@ namespace ProjektniZadatak.Model
                 }
             }
         }
+
         private TuristickiStatus _stTur;
         public TuristickiStatus StTur
         {
@@ -139,6 +142,7 @@ namespace ProjektniZadatak.Model
                 }
             }
         }
+
         private bool _crvenaLista;
         public bool CrvenaLista
         {
@@ -155,6 +159,7 @@ namespace ProjektniZadatak.Model
                 }
             }
         }
+
         private bool _naseljeniRegion;
         public bool NaseljeniRegion
         {
@@ -172,8 +177,8 @@ namespace ProjektniZadatak.Model
             }
         }
 
-        private double _godisnjiPrihod;
-        public double GodisnjiPrihod
+        private string _godisnjiPrihod;
+        public string GodisnjiPrihod
         {
             get
             {
