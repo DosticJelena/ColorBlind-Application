@@ -8,6 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("icon.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("zebracolor.jpg")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("zebrah.jpg")]
 
 

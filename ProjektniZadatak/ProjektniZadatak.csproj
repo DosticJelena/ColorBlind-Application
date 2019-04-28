@@ -75,6 +75,9 @@
     </ApplicationDefinition>
     <Compile Include="Model\Animal.cs" />
     <Compile Include="Model\Tip.cs" />
+    <Compile Include="Prozori\Buttons.xaml.cs">
+      <DependentUpon>Buttons.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Prozori\EtiketaProzor.xaml.cs">
       <DependentUpon>EtiketaProzor.xaml</DependentUpon>
     </Compile>
@@ -84,6 +87,9 @@
     <Compile Include="Model\Etiketa.cs" />
     <Compile Include="Prozori\Species.xaml.cs">
       <DependentUpon>Species.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Prozori\Start.xaml.cs">
+      <DependentUpon>Start.xaml</DependentUpon>
     </Compile>
     <Compile Include="Prozori\TipProzor.xaml.cs">
       <DependentUpon>TipProzor.xaml</DependentUpon>
@@ -96,6 +102,10 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Prozori\Buttons.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Prozori\EtiketaProzor.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -105,6 +115,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Prozori\Species.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Prozori\Start.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -182,6 +196,14 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Prozori\dog-paw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Prozori\zebraEye.jpg" />
+    <Resource Include="Prozori\zebraHair.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="zebraColor.jpg" />
+    <Resource Include="zebraH.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

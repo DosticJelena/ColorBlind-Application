@@ -19,9 +19,12 @@ namespace ProjektniZadatak
     /// </summary>
     public partial class Window1 : Window
     {
+        private Species s;
+
         public Window1()
         {
             InitializeComponent();
+            //this.s = s;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

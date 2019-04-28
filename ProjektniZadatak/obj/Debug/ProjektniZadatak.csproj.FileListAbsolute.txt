@@ -78,3 +78,46 @@ C:\Users\jelen\source\repos\ProjektniZadatak - za svaki slucaj\ProjektniZadatak\
 C:\Users\jelen\source\repos\ProjektniZadatak - za svaki slucaj\ProjektniZadatak\obj\Debug\ProjektniZadatak.csproj.CopyComplete
 C:\Users\jelen\source\repos\ProjektniZadatak - za svaki slucaj\ProjektniZadatak\obj\Debug\ProjektniZadatak.exe
 C:\Users\jelen\source\repos\ProjektniZadatak - za svaki slucaj\ProjektniZadatak\obj\Debug\ProjektniZadatak.pdb
+C:\Users\jelen\Documents\GitHub\ColorBlind-Application\ProjektniZadatak\bin\Debug\ProjektniZadatak.exe.config
+C:\Users\jelen\Documents\GitHub\ColorBlind-Application\ProjektniZadatak\bin\Debug\ProjektniZadatak.exe
+C:\Users\jelen\Documents\GitHub\ColorBlind-Application\ProjektniZadatak\bin\Debug\ProjektniZadatak.pdb
+C:\Users\jelen\Documents\GitHub\ColorBlind-Application\ProjektniZadatak\bin\Debug\Xceed.Wpf.AvalonDock.dll
+C:\Users\jelen\Documents\GitHub\ColorBlind-Application\ProjektniZadatak\bin\Debug\Xceed.Wpf.AvalonDock.Themes.Aero.dll
+C:\Users\jelen\Documents\GitHub\ColorBlind-Application\ProjektniZadatak\bin\Debug\Xceed.Wpf.AvalonDock.Themes.Metro.dll
+C:\Users\jelen\Documents\GitHub\ColorBlind-Application\ProjektniZadatak\bin\Debug\Xceed.Wpf.AvalonDock.Themes.VS2010.dll
+C:\Users\jelen\Documents\GitHub\ColorBlind-Application\ProjektniZadatak\bin\Debug\Xceed.Wpf.Toolkit.dll
+C:\Users\jelen\Documents\GitHub\ColorBlind-Application\ProjektniZadatak\bin\Debug\de\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\jelen\Documents\GitHub\ColorBlind-Application\ProjektniZadatak\bin\Debug\es\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\jelen\Documents\GitHub\ColorBlind-Application\ProjektniZadatak\bin\Debug\fr\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\jelen\Documents\GitHub\ColorBlind-Application\ProjektniZadatak\bin\Debug\hu\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\jelen\Documents\GitHub\ColorBlind-Application\ProjektniZadatak\bin\Debug\it\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\jelen\Documents\GitHub\ColorBlind-Application\ProjektniZadatak\bin\Debug\pt-BR\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\jelen\Documents\GitHub\ColorBlind-Application\ProjektniZadatak\bin\Debug\ro\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\jelen\Documents\GitHub\ColorBlind-Application\ProjektniZadatak\bin\Debug\ru\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\jelen\Documents\GitHub\ColorBlind-Application\ProjektniZadatak\bin\Debug\sv\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\jelen\Documents\GitHub\ColorBlind-Application\ProjektniZadatak\bin\Debug\zh-Hans\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\jelen\Documents\GitHub\ColorBlind-Application\ProjektniZadatak\obj\Debug\ProjektniZadatak.csprojAssemblyReference.cache
+C:\Users\jelen\Documents\GitHub\ColorBlind-Application\ProjektniZadatak\obj\Debug\Prozori\EtiketaProzor.g.cs
+C:\Users\jelen\Documents\GitHub\ColorBlind-Application\ProjektniZadatak\obj\Debug\Prozori\Map.g.cs
+C:\Users\jelen\Documents\GitHub\ColorBlind-Application\ProjektniZadatak\obj\Debug\Prozori\Species.g.cs
+C:\Users\jelen\Documents\GitHub\ColorBlind-Application\ProjektniZadatak\obj\Debug\Prozori\TipProzor.g.cs
+C:\Users\jelen\Documents\GitHub\ColorBlind-Application\ProjektniZadatak\obj\Debug\Window1.g.cs
+C:\Users\jelen\Documents\GitHub\ColorBlind-Application\ProjektniZadatak\obj\Debug\App.g.cs
+C:\Users\jelen\Documents\GitHub\ColorBlind-Application\ProjektniZadatak\obj\Debug\ProjektniZadatak_MarkupCompile.cache
+C:\Users\jelen\Documents\GitHub\ColorBlind-Application\ProjektniZadatak\obj\Debug\ProjektniZadatak_MarkupCompile.lref
+C:\Users\jelen\Documents\GitHub\ColorBlind-Application\ProjektniZadatak\obj\Debug\Prozori\EtiketaProzor.baml
+C:\Users\jelen\Documents\GitHub\ColorBlind-Application\ProjektniZadatak\obj\Debug\Prozori\Map.baml
+C:\Users\jelen\Documents\GitHub\ColorBlind-Application\ProjektniZadatak\obj\Debug\Prozori\Species.baml
+C:\Users\jelen\Documents\GitHub\ColorBlind-Application\ProjektniZadatak\obj\Debug\Prozori\TipProzor.baml
+C:\Users\jelen\Documents\GitHub\ColorBlind-Application\ProjektniZadatak\obj\Debug\Window1.baml
+C:\Users\jelen\Documents\GitHub\ColorBlind-Application\ProjektniZadatak\obj\Debug\ProjektniZadatak.g.resources
+C:\Users\jelen\Documents\GitHub\ColorBlind-Application\ProjektniZadatak\obj\Debug\ProjektniZadatak.Properties.Resources.resources
+C:\Users\jelen\Documents\GitHub\ColorBlind-Application\ProjektniZadatak\obj\Debug\ProjektniZadatak.csproj.GenerateResource.cache
+C:\Users\jelen\Documents\GitHub\ColorBlind-Application\ProjektniZadatak\obj\Debug\ProjektniZadatak.csproj.CoreCompileInputs.cache
+C:\Users\jelen\Documents\GitHub\ColorBlind-Application\ProjektniZadatak\obj\Debug\ProjektniZadatak.csproj.CopyComplete
+C:\Users\jelen\Documents\GitHub\ColorBlind-Application\ProjektniZadatak\obj\Debug\ProjektniZadatak.exe
+C:\Users\jelen\Documents\GitHub\ColorBlind-Application\ProjektniZadatak\obj\Debug\ProjektniZadatak.pdb
+C:\Users\jelen\Documents\GitHub\ColorBlind-Application\ProjektniZadatak\obj\Debug\Prozori\Start.g.cs
+C:\Users\jelen\Documents\GitHub\ColorBlind-Application\ProjektniZadatak\obj\Debug\Prozori\Start.baml
+C:\Users\jelen\Documents\GitHub\ColorBlind-Application\ProjektniZadatak\obj\Debug\Prozori\Buttons.g.cs
+C:\Users\jelen\Documents\GitHub\ColorBlind-Application\ProjektniZadatak\obj\Debug\Prozori\Buttons.baml

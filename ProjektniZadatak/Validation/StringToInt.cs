@@ -10,6 +10,13 @@ namespace ProjektniZadatak.Validation
 {
     public class StringToInt : ValidationRule
     {
+        private Species sWindow;
+
+        public StringToInt(Species s)
+        {
+            this.sWindow = s;
+        }
+
         public override ValidationResult Validate(object value, System.Globalization.CultureInfo cultureInfo)
         {
             try
@@ -31,6 +38,13 @@ namespace ProjektniZadatak.Validation
 
     public class IdEtiketaValidationRule : ValidationRule
     {
+        private Species sWindow;
+
+        public IdEtiketaValidationRule(Species s)
+        {
+            this.sWindow = s;
+        }
+
         public override ValidationResult Validate(object value, System.Globalization.CultureInfo cultureInfo)
         {
             try
@@ -39,7 +53,7 @@ namespace ProjektniZadatak.Validation
                 int r;
                 int.TryParse(s, out r);
                 
-                if (Species.Etikete.Contains(new Model.Etiketa { Id = r }));
+                if (sWindow.Etikete.Contains(new Model.Etiketa { Id = r }));
                 {
 
                 }

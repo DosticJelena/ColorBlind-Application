@@ -40,13 +40,13 @@ namespace ProjektniZadatak
             set;
         }
 
-        public static ObservableCollection<Model.Tip> Tipovi
+        public ObservableCollection<Model.Tip> Tipovi
         {
             get;
             set;
         }
 
-        public static ObservableCollection<Model.Etiketa> Etikete
+        public ObservableCollection<Model.Etiketa> Etikete
         {
             get;
             set;
