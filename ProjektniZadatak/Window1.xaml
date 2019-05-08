@@ -23,9 +23,9 @@
         </Grid.RowDefinitions>
 
 
-        <Rectangle Grid.Column="1" Grid.Row="0" Fill="Black" Width="150" HorizontalAlignment="Right"></Rectangle>
-        <Rectangle Grid.Column="0" Grid.Row="0" Fill="Black" Width="300" HorizontalAlignment="Left"></Rectangle>
-        <Label Grid.Column="0" Grid.Row="0" Foreground="White" FontFamily="Microsoft YaHei UI Light" FontSize="36" Padding="30,5,5,5" VerticalContentAlignment="Center">Naziv aplikacije</Label>
+        <!--<Rectangle Grid.Column="1" Grid.Row="0" Fill="Black" Width="150" HorizontalAlignment="Right"></Rectangle>-->
+        <!--<Rectangle Grid.Column="0" Grid.Row="0" Fill="Black" Width="300" HorizontalAlignment="Left"></Rectangle>-->
+        <!--<Label Grid.Column="0" Grid.Row="0" Foreground="White" FontFamily="Microsoft YaHei UI Light" FontSize="36" Padding="30,5,5,5" VerticalContentAlignment="Center">Naziv aplikacije</Label>-->
         <Button Grid.Column="1" Grid.Row="0" Width="50" Height="50" HorizontalContentAlignment="Center" HorizontalAlignment="Right" Margin="0,0,50,0" BorderThickness="0" Cursor="Hand" Background="White" Content="X" FontFamily="Trebuchet MS" FontSize="24" Click="Close"/>
 
         <!-- Dugmici -->

@@ -258,7 +258,7 @@
                         <ImageBrush ImageSource="/ProjektniZadatak;component/left-arrow.png"/>
                     </Button.Background>
                 </Button>
-                <Label Grid.Column="1" Foreground="#FFE58C67" FontSize="28" FontFamily="Microsoft YaHei Light" VerticalContentAlignment="Center" Padding="50,5,5,5" BorderThickness="1,0,0,0" BorderBrush="White">Lista Zivotinja:</Label>
+                <Label Name="nazivListe" Grid.Column="1" Foreground="#FFE58C67" FontSize="28" FontFamily="Microsoft YaHei Light" VerticalContentAlignment="Center" Padding="50,5,5,5" BorderThickness="1,0,0,0" BorderBrush="White">Lista Zivotinja:</Label>
             </Grid>
             <Grid DockPanel.Dock="Bottom">
                 <Grid.RowDefinitions>
@@ -276,6 +276,32 @@
                             <WrapPanel>
                                 <Image Source="{Binding Path=Image}" Width="75" Height="75"/>
                                 <TextBlock Text="  " FontSize="36" Foreground="White" Padding="0,15,0,0"/>
+                                <TextBlock Text="{Binding Path=Ime}" FontSize="36" Foreground="White" Padding="0,15,0,0"/>
+                            </WrapPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+                <ListView Grid.Row="0" Name="etikete" BorderBrush="Black" FontFamily="Microsoft JhengHei Light" FontSize="16" SelectionChanged="Selekcija_Liste_Etikete">
+                    <ListView.Background>
+                        <SolidColorBrush Color="Black" Opacity="0.9"/>
+                    </ListView.Background>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <WrapPanel>
+                                <TextBlock Text="{Binding Path=Id}" FontSize="36" Foreground="White" Padding="0,15,0,0"/>
+                            </WrapPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+                <ListView Grid.Row="0" Name="tipovi" BorderBrush="Black" FontFamily="Microsoft JhengHei Light" FontSize="16" SelectionChanged="Selekcija_Liste_Tipovi">
+                    <ListView.Background>
+                        <SolidColorBrush Color="Black" Opacity="0.9"/>
+                    </ListView.Background>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <WrapPanel>
                                 <TextBlock Text="{Binding Path=Ime}" FontSize="36" Foreground="White" Padding="0,15,0,0"/>
                             </WrapPanel>
                         </DataTemplate>
