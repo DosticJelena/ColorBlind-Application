@@ -15,6 +15,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using ProjektniZadatak.Validation;
 
 namespace ProjektniZadatak
 {
@@ -27,6 +28,10 @@ namespace ProjektniZadatak
         public static int brojac=0;
         private int animalIndex;
 
+        ObservableCollection<Etiketa> Etikete;
+        ObservableCollection<Tip> Tipovi;
+        ObservableCollection<Animal> Animals;
+
         protected void OnPropertyChanged(string info)
         {
             if (PropertyChanged != null)
@@ -34,29 +39,14 @@ namespace ProjektniZadatak
                 PropertyChanged(this, new PropertyChangedEventArgs(info));
             }
         }
-
-        public static ObservableCollection<Animal> Animals
-        {
-            get;
-            set;
-        }
-
-        public ObservableCollection<Model.Tip> Tipovi
-        {
-            get;
-            set;
-        }
-
-        public ObservableCollection<Model.Etiketa> Etikete
-        {
-            get;
-            set;
-        }
-
-
-        public Species()
+        
+        public Species(ObservableCollection<Etiketa> e, ObservableCollection<Tip> t, ObservableCollection<Animal> a)
         {
             InitializeComponent();
+
+            this.Animals = a;
+            this.Etikete = e;
+            this.Tipovi = t;
 
             RightRectangle.Visibility = Visibility.Hidden;
             EtiketaPanel.Visibility = Visibility.Hidden;
@@ -64,67 +54,6 @@ namespace ProjektniZadatak
 
             this.DataContext = this;
             
-            if (brojac==0)
-            {
-                Animals = new ObservableCollection<Animal>();
-                Tipovi = new ObservableCollection<Model.Tip>();
-                Etikete = new ObservableCollection<Model.Etiketa>();
-
-                Tipovi.Add(new Model.Tip { Id = "1", Ime = "Ptice", Opis = "Pernate zivotinje" });
-                Tipovi.Add(new Model.Tip { Id = "2", Ime = "Kopnene", Opis = "Zive na kopnu" });
-                Tipovi.Add(new Model.Tip { Id = "3", Ime = "Vodene", Opis = "Zive u vodi" });
-
-                Etikete.Add(new Model.Etiketa { Id = 1, Opis = "1" });
-                Etikete.Add(new Model.Etiketa { Id = 2, Opis = "2" });
-                Etikete.Add(new Model.Etiketa { Id = 3, Opis = "3" });
-
-
-                Animal prva = new Animal
-                {
-                    Id = "1",
-                    Ime = "Prva",
-                    Opis = "Opis1",
-                    StUgr = Animal.StatusUgrozenosti.KriticnoUgrozena,
-                    StTur = Animal.TuristickiStatus.DelimicnoHabituirana,
-                    Opasna = false,
-                    NaseljeniRegion = true,
-                    CrvenaLista = false,
-                    GodisnjiPrihod = "123.43",
-                    TipZiv = Tipovi[0],
-                    Image = new BitmapImage(new Uri("C:\\Users\\jelen\\Pictures\\Projekat\\fish.jpg")),
-                    Datum = new DateTime(2018, 6, 7)
-            };
-                Animal druga = new Animal
-                {
-                    Id = "2",
-                    Ime = "Druga",
-                    Opis = "Opis2",
-                    StUgr = Animal.StatusUgrozenosti.Ranjiva,
-                    StTur = Animal.TuristickiStatus.Habituirana,
-                    Opasna = true,
-                    NaseljeniRegion = true,
-                    CrvenaLista = false,
-                    GodisnjiPrihod = "2323.51",
-                    TipZiv = Tipovi[2],
-                    Image = new BitmapImage(new Uri("C:\\Users\\jelen\\Pictures\\Projekat\\land.jpg")),
-                    Datum = new DateTime(2018, 6, 5)
-                };
-
-                Animals.Add(prva);
-                Animals.Add(druga);
-
-                TipZivotinje.ItemsSource = Tipovi;
-                //TipZivotinje.SelectedIndex = 0;
-                EtiketeZivotinje.ItemsSource = Etikete;
-                //EtiketeZivotinje.SelectedIndex = 0;
-
-                zivotinje.ItemsSource = Animals;
-                etikete.ItemsSource = Etikete;
-                etikete.Visibility = Visibility.Hidden;
-                tipovi.ItemsSource = Tipovi;
-                tipovi.Visibility = Visibility.Hidden;
-            }
-
             EtiketeZivotinje.ItemsSource = Etikete;
             TipZivotinje.ItemsSource = Tipovi;
             zivotinje.ItemsSource = Animals;
@@ -139,13 +68,6 @@ namespace ProjektniZadatak
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
            
-            PanelTip.Visibility = Visibility.Hidden;
-            EtiketaPanel.Visibility = Visibility.Hidden;
-            RightRectangle.Visibility = Visibility.Visible;
-            btnDodajUListu.Visibility = Visibility.Visible;
-            btnAzurirajListu.Visibility = Visibility.Hidden;
-            btnObrisi.Visibility = Visibility.Hidden;
-
             IdZivotinje.Text = "";
             IdZivotinje.IsEnabled = true;
             ImeZivotinje.Text = "";
@@ -161,14 +83,12 @@ namespace ProjektniZadatak
             godPrihod.Text = "";
             EtiketeZivotinje.SelectedItem = null;
             TipZivotinje.SelectedItem = null;
-
+            EtiketeZivotinje.SelectedItem = null;
+            EtiketeZivotinje.Text = "";
             IdZivotinje.Focus();
-
             nazivListe.Content = "Lista Zivotinja";
-            //zivotinje.SelectedValue = null;
-            zivotinje.Visibility = Visibility.Visible;
-            tipovi.Visibility = Visibility.Hidden;
-            etikete.Visibility = Visibility.Hidden;
+            visibility_settings((Button)sender);
+            
         }
 
 
@@ -177,13 +97,19 @@ namespace ProjektniZadatak
         {
             if (ImeZivotinje.Text != "" && OpisZivotinje.Text!="" && StTurZivotinje.Text !="" && StUgrZivotinje.Text!="")
             {
-                //btnDodajUListu.IsEnabled = true;
+                
                 Animal.TuristickiStatus st1 = (Animal.TuristickiStatus)Enum.Parse(typeof(Animal.TuristickiStatus), StTurZivotinje.Text);
                 Animal.StatusUgrozenosti st2 = (Animal.StatusUgrozenosti)Enum.Parse(typeof(Animal.StatusUgrozenosti), StUgrZivotinje.Text);
                 
                 Uri myUri = new Uri(SlikaZivotinje.Source.ToString(), UriKind.RelativeOrAbsolute);
                 BitmapDecoder decoder = BitmapDecoder.Create(myUri, BitmapCreateOptions.PreservePixelFormat, BitmapCacheOption.Default);
                 BitmapSource bitmapSource = decoder.Frames[0];
+
+                List<Etiketa> lista = new List<Etiketa>();
+                for (int i = 0; i < EtiketeZivotinje.SelectedItems.Count; i++)
+                {
+                    lista.Add((Etiketa)EtiketeZivotinje.SelectedItems[i]);
+                }
 
                 Animals.Add(new Animal {
                     Id = IdZivotinje.Text,
@@ -197,7 +123,8 @@ namespace ProjektniZadatak
                     GodisnjiPrihod = godPrihod.Text,
                     Datum = (DateTime)pickDatum.SelectedDate,
                     Image = bitmapSource,
-                    TipZiv = (Tip)TipZivotinje.SelectedItem
+                    TipZiv = (Tip)TipZivotinje.SelectedItem,
+                    EtiketeZiv = lista
                 });
                
                 RightRectangle.Visibility = Visibility.Hidden;
@@ -223,6 +150,12 @@ namespace ProjektniZadatak
                 BitmapDecoder decoder = BitmapDecoder.Create(myUri, BitmapCreateOptions.PreservePixelFormat, BitmapCacheOption.Default);
                 BitmapSource bitmapSource = decoder.Frames[0];
 
+                List<Etiketa> lista = new List<Etiketa>();
+                for (int i = 0; i < EtiketeZivotinje.SelectedItems.Count; i++)
+                {
+                    lista.Add((Etiketa)EtiketeZivotinje.SelectedItems[i]);
+                }
+
                 animal.Ime = ImeZivotinje.Text;
                 animal.Opis = OpisZivotinje.Text;
                 animal.StUgr = st2;
@@ -234,8 +167,7 @@ namespace ProjektniZadatak
                 animal.Datum = (DateTime)pickDatum.SelectedDate;
                 animal.Image = bitmapSource;
                 animal.TipZiv = (Tip)TipZivotinje.SelectedItem;
-
-                //zivotinje.SelectedIndex = -1;
+                animal.EtiketeZiv = lista;
 
                 RightRectangle.Visibility = Visibility.Hidden;
                 
@@ -244,8 +176,6 @@ namespace ProjektniZadatak
 
         private void Brisanje_Zivotinje(object sender, RoutedEventArgs e)
         {
-            
-
             if (Animals.Any(x => x.Id == IdZivotinje.Text))
             {
                 List<Animal> animalList = Animals.ToList<Animal>();
@@ -292,50 +222,35 @@ namespace ProjektniZadatak
         //Dugmici za otvaranje panela za dodavanje etikete i tipa
         private void Nova_Etiketa(object sender, RoutedEventArgs e)
         {
-            RightRectangle.Visibility = Visibility.Hidden;
-            PanelTip.Visibility = Visibility.Hidden;
-            EtiketaPanel.Visibility = Visibility.Visible;
-
+            
             idEtiketa.Text = "";
             idEtiketa.IsEnabled = true;
             opisEtiketa.Text = "";
             cbBoja.SelectedColor = null;
-
             idEtiketa.Focus();
-
-            Prozori.EtiketaProzor.brojacEtikete++;
             nazivListe.Content = "Lista Etiketa";
-            zivotinje.Visibility = Visibility.Hidden;
-            tipovi.Visibility = Visibility.Hidden;
-            etikete.Visibility = Visibility.Visible;
+            visibility_settings((Button)sender);
         }
 
         private void Novi_Tip(object sender, RoutedEventArgs e)
         {
-            RightRectangle.Visibility = Visibility.Hidden;
-            EtiketaPanel.Visibility = Visibility.Hidden;
-            PanelTip.Visibility = Visibility.Visible;
-
-            rctSlikaa.Visibility = Visibility.Visible;
+            
             idTipa.Text = "";
             idTipa.IsEnabled = true;
             imeTipa.Text = "";
             opisTipa.Text = "";
             Ikonica.Source = null;
-
             idTipa.Focus();
-
             nazivListe.Content = "Lista Tipova";
-            zivotinje.Visibility = Visibility.Hidden;
-            tipovi.Visibility = Visibility.Visible;
-            etikete.Visibility = Visibility.Hidden;
-            TipProzor.brojacTip++;
+            visibility_settings((Button)sender);
+            
         }
 
 
         // Selektovani element liste
         private void Selekcija_Liste(object sender, SelectionChangedEventArgs e)
         {
+            visibility_settings_list((ListView)sender);
             if (Animals.Count > 0)
             {
                 Animal animal = new Animal();
@@ -345,7 +260,6 @@ namespace ProjektniZadatak
                 }
                 else
                 {
-                    //zivotinje.SelectAll();
                     zivotinje.SelectedIndex = 0;
                     animal = (Animal)zivotinje.SelectedItems[0];
                 }
@@ -364,38 +278,73 @@ namespace ProjektniZadatak
                 SlikaZivotinje.Source = animal.Image;
                 godPrihod.Text = animal.GodisnjiPrihod;
                 TipZivotinje.SelectedItem = animal.TipZiv;
-
-                rctSlika.Visibility = Visibility.Hidden;
-                btnDodajUListu.Visibility = Visibility.Hidden;
-                btnAzurirajListu.Visibility = Visibility.Visible;
-                btnObrisi.Visibility = Visibility.Visible;
-                RightRectangle.Visibility = Visibility.Visible;
-                PanelTip.Visibility = Visibility.Hidden;
-                EtiketaPanel.Visibility = Visibility.Hidden;
+                String etikete = animal.EtiketeZiv.ToString();
+                for (int i = 0; i < animal.EtiketeZiv.Count; i++)
+                {
+                    EtiketeZivotinje.SelectedItem = animal.EtiketeZiv[i];
+                }
             } 
             else
             {
                 RightRectangle.Visibility = Visibility.Hidden;
             }
-
-            //zivotinje.UnselectAll();
         }
 
         private void Selekcija_Liste_Etikete(object sender, SelectionChangedEventArgs e)
         {
-            Model.Etiketa et = (Model.Etiketa)etikete.SelectedItems[0];
-            idEtiketa.Text = et.Id.ToString();
-            idEtiketa.IsEnabled = false;
-            opisEtiketa.Text = et.Opis.ToString();
+            if (Etikete.Count > 0)
+            {
+                Etiketa et = new Etiketa();
+                if (etikete.SelectedIndex != -1)
+                {
+                    et = (Etiketa)etikete.SelectedItems[0];
+                }
+                else
+                {
+                    etikete.SelectedIndex = 0;
+                    et = (Etiketa)etikete.SelectedItems[0];
+                }
+                
+                idEtiketa.Text = et.Id.ToString();
+                idEtiketa.IsEnabled = false;
+                opisEtiketa.Text = et.Opis.ToString();
+                cbBoja.SelectedColor = et.Boja;
+                visibility_settings_list((ListView)sender);
+            }
+            else
+            {
+                EtiketaPanel.Visibility = Visibility.Hidden;
+            }
+            
         }
 
         private void Selekcija_Liste_Tipovi(object sender, SelectionChangedEventArgs e)
         {
-            Model.Tip t = (Model.Tip)tipovi.SelectedItems[0];
-            idTipa.Text = t.Id.ToString();
-            idTipa.IsEnabled = false;
-            imeTipa.Text = t.Ime.ToString();
-            opisTipa.Text = t.Opis.ToString();
+            if (Tipovi.Count > 0)
+            {
+                Tip t = new Tip();
+                if (tipovi.SelectedIndex != -1)
+                {
+                    t = (Tip)tipovi.SelectedItems[0];
+                }
+                else
+                {
+                    tipovi.SelectedIndex = 0;
+                    t = (Tip)tipovi.SelectedItems[0];
+                }
+                
+                idTipa.Text = t.Id.ToString();
+                idTipa.IsEnabled = false;
+                imeTipa.Text = t.Ime.ToString();
+                opisTipa.Text = t.Opis.ToString();
+                Ikonica.Source = t.Image;
+                visibility_settings_list((ListView)sender);
+            }
+            else
+            {
+                PanelTip.Visibility = Visibility.Hidden;
+            }
+            
         }
 
 
@@ -404,13 +353,38 @@ namespace ProjektniZadatak
         {
             if (!idEtiketa.Equals("") && !opisEtiketa.Equals(""))
             {
-                Etikete.Add(new Model.Etiketa { Id = double.Parse(idEtiketa.Text), Opis = opisEtiketa.Text});
-                TipZivotinje.ItemsSource = Tipovi;
-                idEtiketa.Text = "";
-                opisEtiketa.Text = "";
+                Etikete.Add(new Model.Etiketa { Id = double.Parse(idEtiketa.Text), Opis = opisEtiketa.Text, Boja = (Color)cbBoja.SelectedColor});
                 
                 EtiketaPanel.Visibility = Visibility.Hidden;
             }
+        }
+
+        private void Obrisi_Etiketu(object sender, RoutedEventArgs e)
+        {
+            Etikete.Remove((Etiketa)etikete.SelectedItems[0]);
+            etikete.UnselectAll();
+            if (Etikete.Count > 1)
+            {
+                EtiketaPanel.Visibility = Visibility.Hidden;
+            }
+            
+        }
+
+        private void Azuriraj_Etiketu(object sender, RoutedEventArgs e)
+        {
+            if (Etikete.Any(x => x.Id.ToString() == idEtiketa.Text))
+            {
+                List<Etiketa> etList = Etikete.ToList<Etiketa>();
+                Etiketa et = etList.Find(x => x.Id.ToString() == idEtiketa.Text);
+                int pozicija = Etikete.IndexOf(et);
+                et = Etikete.ElementAt(pozicija);
+
+                et.Opis = opisEtiketa.Text;
+                et.Boja = (Color)cbBoja.SelectedColor;
+
+                EtiketaPanel.Visibility = Visibility.Hidden;
+            }
+
         }
 
         private void Dodaj_Tip(object sender, RoutedEventArgs e)
@@ -430,6 +404,39 @@ namespace ProjektniZadatak
             }
         }
 
+        private void Obrisi_Tip(object sender, RoutedEventArgs e)
+        {
+
+            if (Animals.Any(x => x.TipZiv == (Tip)tipovi.SelectedItems[0]))
+            {
+                visibility_settings((Button)sender);
+            }
+            else
+            {
+                upozorenje.Text = "Da li ste sigurni da zelite da obrisete ovaj tip?";
+                visibility_settings((Button)sender);
+            }
+            
+        }
+
+        private void Obrisi_Tip2(object sender, RoutedEventArgs e)
+        {
+            List<Animal> aList = Animals.ToList();
+            foreach (Animal a in aList)
+            {
+                if (a.TipZiv == (Tip)tipovi.SelectedItems[0])
+                {
+                    Animals.Remove(a);
+                }
+            }
+
+            Tipovi.Remove((Tip)tipovi.SelectedItems[0]);
+            tipovi.UnselectAll();
+            if (Tipovi.Count > 1)
+            {
+                PanelTip.Visibility = Visibility.Hidden;
+            }
+        }
 
         // Uredjivanje dugmica pri prelazu misa
         private void HoverZ(object sender, MouseEventArgs e)
@@ -465,6 +472,133 @@ namespace ProjektniZadatak
         private void Back(object sender, RoutedEventArgs e)
         {
             this.Visibility = Visibility.Hidden;
+        }
+
+        //prikaz
+        private void visibility_settings(Button sender)
+        {
+            if (sender.Content.Equals("Obrisati") && (sender.Name.Equals("btnObrisiTip") || sender.Name.Equals("btnObrisiTip2")))
+            {
+                idTipa.Visibility = Visibility.Hidden;
+                imeTipa.Visibility = Visibility.Hidden;
+                opisTipa.Visibility = Visibility.Hidden;
+                Ikonica.Visibility = Visibility.Hidden;
+                btnAzurirajTip.Visibility = Visibility.Hidden;
+                btnObrisiTip.Visibility = Visibility.Hidden;
+                uvozIkonice.Visibility = Visibility.Hidden;
+                lab1.Visibility = Visibility.Hidden;
+                lab2.Visibility = Visibility.Hidden;
+                lab3.Visibility = Visibility.Hidden;
+                lab4.Visibility = Visibility.Hidden;
+
+                btnObrisiTip2.Visibility = Visibility.Visible;
+                btnPonisti.Visibility = Visibility.Visible;
+                upozorenje.Visibility = Visibility.Visible;
+            }
+            else if (sender.Name.Equals("btnT"))
+            {
+                RightRectangle.Visibility = Visibility.Hidden;
+                EtiketaPanel.Visibility = Visibility.Hidden;
+                PanelTip.Visibility = Visibility.Visible;
+
+                zivotinje.Visibility = Visibility.Hidden;
+                tipovi.Visibility = Visibility.Visible;
+                etikete.Visibility = Visibility.Hidden;
+
+                idTipa.Visibility = Visibility.Visible;
+                imeTipa.Visibility = Visibility.Visible;
+                opisTipa.Visibility = Visibility.Visible;
+                Ikonica.Visibility = Visibility.Visible;
+                rctSlikaa.Visibility = Visibility.Visible;
+                uvozIkonice.Visibility = Visibility.Visible;
+                lab1.Visibility = Visibility.Visible;
+                lab2.Visibility = Visibility.Visible;
+                lab3.Visibility = Visibility.Visible;
+                lab4.Visibility = Visibility.Visible;
+
+                noviT.Visibility = Visibility.Visible;
+                btnKreirajTip.Visibility = Visibility.Visible;
+                btnAzurirajTip.Visibility = Visibility.Hidden;
+                btnObrisiTip.Visibility = Visibility.Hidden;
+                btnObrisiTip2.Visibility = Visibility.Hidden;
+                btnPonisti.Visibility = Visibility.Hidden;
+                upozorenje.Visibility = Visibility.Hidden;
+            }
+            else if (sender.Name.Equals("btnE"))
+            {
+                RightRectangle.Visibility = Visibility.Hidden;
+                PanelTip.Visibility = Visibility.Hidden;
+                EtiketaPanel.Visibility = Visibility.Visible;
+
+                zivotinje.Visibility = Visibility.Hidden;
+                tipovi.Visibility = Visibility.Hidden;
+                etikete.Visibility = Visibility.Visible;
+
+                novaE.Visibility = Visibility.Visible;
+                btnKreirajEtiketu.Visibility = Visibility.Visible;
+                btnAzurirajEtiketu.Visibility = Visibility.Hidden;
+                btnObrisiEtiketu.Visibility = Visibility.Hidden;
+            }
+            else if (sender.Name.Equals("btnZ"))
+            {
+                PanelTip.Visibility = Visibility.Hidden;
+                EtiketaPanel.Visibility = Visibility.Hidden;
+                RightRectangle.Visibility = Visibility.Visible;
+                btnDodajUListu.Visibility = Visibility.Visible;
+                btnAzurirajListu.Visibility = Visibility.Hidden;
+                btnObrisi.Visibility = Visibility.Hidden;
+
+                zivotinje.Visibility = Visibility.Visible;
+                tipovi.Visibility = Visibility.Hidden;
+                etikete.Visibility = Visibility.Hidden;
+            }
+        }
+
+        private void visibility_settings_list(ListView sender)
+        {
+            var selected = sender.SelectedItems[0];
+
+            if (selected.GetType().ToString() == "ProjektniZadatak.Model.Animal")
+            {
+                rctSlika.Visibility = Visibility.Hidden;
+                btnDodajUListu.Visibility = Visibility.Hidden;
+                btnAzurirajListu.Visibility = Visibility.Visible;
+                btnObrisi.Visibility = Visibility.Visible;
+                RightRectangle.Visibility = Visibility.Visible;
+                PanelTip.Visibility = Visibility.Hidden;
+                EtiketaPanel.Visibility = Visibility.Hidden;
+            }
+            else if (selected.GetType().ToString() == "ProjektniZadatak.Model.Etiketa")
+            {
+                novaE.Visibility = Visibility.Hidden;
+                EtiketaPanel.Visibility = Visibility.Visible;
+                btnKreirajEtiketu.Visibility = Visibility.Hidden;
+                btnAzurirajEtiketu.Visibility = Visibility.Visible;
+                btnObrisiEtiketu.Visibility = Visibility.Visible;
+            }
+            else if (selected.GetType().ToString() == "ProjektniZadatak.Model.Tip")
+            {
+                noviT.Visibility = Visibility.Hidden;
+                PanelTip.Visibility = Visibility.Visible;
+                btnKreirajTip.Visibility = Visibility.Hidden;
+                btnAzurirajTip.Visibility = Visibility.Visible;
+                btnObrisiTip.Visibility = Visibility.Visible;
+
+                idTipa.Visibility = Visibility.Visible;
+                imeTipa.Visibility = Visibility.Visible;
+                opisTipa.Visibility = Visibility.Visible;
+                Ikonica.Visibility = Visibility.Visible;
+                uvozIkonice.Visibility = Visibility.Visible;
+                rctSlikaa.Visibility = Visibility.Hidden;
+                lab1.Visibility = Visibility.Visible;
+                lab2.Visibility = Visibility.Visible;
+                lab3.Visibility = Visibility.Visible;
+                lab4.Visibility = Visibility.Visible;
+
+                btnObrisiTip2.Visibility = Visibility.Hidden;
+                btnPonisti.Visibility = Visibility.Hidden;
+                upozorenje.Visibility = Visibility.Hidden;
+            }
         }
     }
 }

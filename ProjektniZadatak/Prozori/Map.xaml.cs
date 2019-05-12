@@ -1,5 +1,7 @@
-﻿using System;
+﻿using ProjektniZadatak.Model;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,10 +21,10 @@ namespace ProjektniZadatak
     /// </summary>
     public partial class Map : Window
     {
-        public Map()
+        public Map(ObservableCollection<Animal> a)
         {
             InitializeComponent();
-            zivotinje.ItemsSource = Species.Animals;
+            zivotinje.ItemsSource = a;
         }
 
         private void Back(object sender, RoutedEventArgs e)

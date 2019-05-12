@@ -211,19 +211,19 @@ namespace ProjektniZadatak.Model
             }
         }
 
-        private Etiketa _etiketaZiv;
-        public Etiketa EtiketaZiv
+        private List<Etiketa> _etiketeZiv;
+        public List<Etiketa> EtiketeZiv
         {
             get
             {
-                return _etiketaZiv;
+                return _etiketeZiv;
             }
             set
             {
-                if (value != _etiketaZiv)
+                if (value != _etiketeZiv)
                 {
-                    _etiketaZiv = value;
-                    OnPropertyChanged("EtiketaZiv");
+                    _etiketeZiv = value;
+                    OnPropertyChanged("EtiketeZiv");
                 }
             }
         }

@@ -10,13 +10,6 @@ namespace ProjektniZadatak.Validation
 {
     public class StringToInt : ValidationRule
     {
-        private Species sWindow;
-
-        public StringToInt(Species s)
-        {
-            this.sWindow = s;
-        }
-
         public override ValidationResult Validate(object value, System.Globalization.CultureInfo cultureInfo)
         {
             try
@@ -38,11 +31,10 @@ namespace ProjektniZadatak.Validation
 
     public class IdEtiketaValidationRule : ValidationRule
     {
-        private Species sWindow;
-
+        Species sWindow;
         public IdEtiketaValidationRule(Species s)
         {
-            this.sWindow = s;
+            sWindow = s;
         }
 
         public override ValidationResult Validate(object value, System.Globalization.CultureInfo cultureInfo)
@@ -53,10 +45,8 @@ namespace ProjektniZadatak.Validation
                 int r;
                 int.TryParse(s, out r);
                 
-                if (sWindow.Etikete.Contains(new Model.Etiketa { Id = r }));
-                {
+                //Ako postoji taj id
 
-                }
                 return new ValidationResult(false, "Unesena id vrednost nije jedinstvena.");
             }
             catch
@@ -65,4 +55,23 @@ namespace ProjektniZadatak.Validation
             }
         }
     }
+
+    public class EValidationRule : ValidationRule
+    {
+        
+        public override ValidationResult Validate(object value, CultureInfo cultureInfo)
+        {
+            string content = value.ToString();
+
+            if (string.Equals(content, ""))
+            {
+                return new ValidationResult(false, "Field can not be empty!");
+
+            }
+            else
+                return new ValidationResult(true, null);
+        }
+    }
+    
+    
 }

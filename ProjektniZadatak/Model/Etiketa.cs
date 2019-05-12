@@ -37,8 +37,8 @@ namespace ProjektniZadatak.Model
             }
         }
 
-        private Colors _boja;
-        public Colors Boja
+        private Color _boja;
+        public Color Boja
         {
             get
             {

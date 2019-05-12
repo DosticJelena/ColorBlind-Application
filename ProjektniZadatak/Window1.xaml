@@ -10,44 +10,62 @@
         <ImageBrush ImageSource="zebraColor.jpg" Stretch="UniformToFill"/>
     </Window.Background>
 
-    <Grid>
+    <Grid Margin="0">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="3*" />
             <ColumnDefinition Width="3*" />
+            <ColumnDefinition Width="2*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="100"/>
-            <RowDefinition Height="2*" />
-            <RowDefinition Height="2*" />
-            <RowDefinition Height="2*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="5*" />
+            <RowDefinition Height="5*" />
+            <RowDefinition Height="1*" />
         </Grid.RowDefinitions>
 
 
         <!--<Rectangle Grid.Column="1" Grid.Row="0" Fill="Black" Width="150" HorizontalAlignment="Right"></Rectangle>-->
         <!--<Rectangle Grid.Column="0" Grid.Row="0" Fill="Black" Width="300" HorizontalAlignment="Left"></Rectangle>-->
         <!--<Label Grid.Column="0" Grid.Row="0" Foreground="White" FontFamily="Microsoft YaHei UI Light" FontSize="36" Padding="30,5,5,5" VerticalContentAlignment="Center">Naziv aplikacije</Label>-->
-        <Button Grid.Column="1" Grid.Row="0" Width="50" Height="50" HorizontalContentAlignment="Center" HorizontalAlignment="Right" Margin="0,0,50,0" BorderThickness="0" Cursor="Hand" Background="White" Content="X" FontFamily="Trebuchet MS" FontSize="24" Click="Close"/>
+        <Button Grid.Column="2" Grid.Row="0" Width="50" Height="50" HorizontalContentAlignment="Center" HorizontalAlignment="Right" Margin="0,30,50,0" BorderThickness="0" Cursor="Hand" Content="X" FontFamily="Trebuchet MS" FontSize="24" Click="Close">
+            <Button.Background>
+                <SolidColorBrush Color="White" Opacity="0.8"/>
+            </Button.Background>
+        </Button>
+        <Button Grid.Column="0" Grid.Row="0" Width="150" Height="50" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="30,30,0,0" BorderThickness="0" Cursor="Hand" Content="Load" FontFamily="Microsoft YaHei UI Light" FontSize="24" Click="Load">
+            <Button.Background>
+                <SolidColorBrush Color="White" Opacity="0.8"/>
+            </Button.Background>
+        </Button>
+        <Button Grid.Column="0" Grid.Row="0" Width="150" Height="50" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="250,30,0,0" BorderThickness="0" Cursor="Hand" Content="Save" FontFamily="Microsoft YaHei UI Light" FontSize="24" Click="Save">
+            <Button.Background>
+                <SolidColorBrush Color="White" Opacity="0.8"/>
+            </Button.Background>
+        </Button>
 
         <!-- Dugmici -->
+        <!--
         <Button Name="btnTutorial" Grid.Column="0" Grid.Row="2" Margin="0" BorderThickness="0,0,1,1" Foreground="White" FontSize="28" FontFamily="Microsoft YaHei UI Light" MouseEnter="HoverT" MouseLeave="HoverTLeave" Cursor="Hand">
             <Button.Background>
                 <SolidColorBrush Color="#FF020202" Opacity="0.75"/>
             </Button.Background>
             Uputstvo
         </Button>
-        <Button Name="btnM" Grid.Column="1" Grid.Row="2" Margin="0" BorderThickness="0,0,0,1" FontFamily="Microsoft YaHei UI Light" FontSize="28" Foreground="White" Click="Button_Click_1" MouseEnter="HoverM" MouseLeave="HoverMLeave" Cursor="Hand">
+        -->
+        <Button Name="btnM" Grid.Column="1" Grid.Row="2" Grid.RowSpan="2" Margin="0" BorderThickness="0,0,1,0" FontFamily="Microsoft YaHei UI Light" FontSize="28" Foreground="White" Click="Button_Click_1" MouseEnter="HoverM" MouseLeave="HoverMLeave" Cursor="Hand">
             <Button.Background>
                 <SolidColorBrush Color="Black" Opacity="0.75"/>
             </Button.Background>
             Mapa Sveta
         </Button>
-        <Button Name="btnAS" Grid.Column="0" Grid.Row="3" Margin="0" BorderThickness="0,0,1,1" Foreground="White" FontSize="28" FontFamily="Microsoft YaHei UI Light" Click="Button_Click" MouseEnter="HoverAS" MouseLeave="HoverASLeave" Cursor="Hand">
+        <Button Name="btnAS" Grid.Column="0" Grid.Row="2" Grid.RowSpan="2" Margin="0" BorderThickness="0,0,1,0" Foreground="White" FontSize="28" FontFamily="Microsoft YaHei UI Light" Click="Button_Click" MouseEnter="HoverAS" MouseLeave="HoverASLeave" Cursor="Hand">
             <Button.Background>
                 <SolidColorBrush Color="Black" Opacity="0.75"/>
             </Button.Background>
             Zivotinjske vrste
         </Button>
-        <Button Name="btnHelp" Grid.Column="1" Grid.Row="3" Margin="0" BorderThickness="0,0,0,1" Foreground="White" FontSize="28" FontFamily="Microsoft YaHei UI Light" MouseEnter="HoverH" MouseLeave="HoverHLeave" Cursor="Hand">
+        <Button Name="btnHelp" Grid.Column="2" Grid.Row="2" Grid.RowSpan="2" Margin="0" BorderThickness="0" Foreground="White" FontSize="28" FontFamily="Microsoft YaHei UI Light" MouseEnter="HoverH" MouseLeave="HoverHLeave" Cursor="Hand">
             <Button.Background>
                 <SolidColorBrush Color="Black" Opacity="0.75"/>
             </Button.Background>

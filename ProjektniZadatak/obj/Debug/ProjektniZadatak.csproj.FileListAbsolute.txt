@@ -121,3 +121,5 @@ C:\Users\jelen\Documents\GitHub\ColorBlind-Application\ProjektniZadatak\obj\Debu
 C:\Users\jelen\Documents\GitHub\ColorBlind-Application\ProjektniZadatak\obj\Debug\Prozori\Start.baml
 C:\Users\jelen\Documents\GitHub\ColorBlind-Application\ProjektniZadatak\obj\Debug\Prozori\Buttons.g.cs
 C:\Users\jelen\Documents\GitHub\ColorBlind-Application\ProjektniZadatak\obj\Debug\Prozori\Buttons.baml
+C:\Users\jelen\Documents\GitHub\ColorBlind-Application\ProjektniZadatak\bin\Debug\Newtonsoft.Json.dll
+C:\Users\jelen\Documents\GitHub\ColorBlind-Application\ProjektniZadatak\bin\Debug\Newtonsoft.Json.xml

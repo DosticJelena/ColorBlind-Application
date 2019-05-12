@@ -35,6 +35,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -94,6 +97,7 @@
     <Compile Include="Prozori\TipProzor.xaml.cs">
       <DependentUpon>TipProzor.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Validation\EmptyValidationRule.cs" />
     <Compile Include="Validation\StringToInt.cs" />
     <Compile Include="Window1.xaml.cs">
       <DependentUpon>Window1.xaml</DependentUpon>
@@ -184,9 +188,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="dog-paw.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="back.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="left-arrow.png" />
