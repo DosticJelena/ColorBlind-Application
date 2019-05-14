@@ -27,6 +27,7 @@ namespace ProjektniZadatak.Prozori
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Window1 w = new Window1();
+            //Load w = new Load();
             w.Show();
             this.Visibility = Visibility.Hidden;
         }

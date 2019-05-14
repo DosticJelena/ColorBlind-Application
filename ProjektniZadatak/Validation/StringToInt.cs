@@ -1,5 +1,7 @@
-﻿using System;
+﻿using ProjektniZadatak.Model;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Globalization;
 using System.Linq;
 using System.Text;
@@ -20,21 +22,44 @@ namespace ProjektniZadatak.Validation
                 {
                     return new ValidationResult(true, null);
                 }
-                return new ValidationResult(false, "Please enter a valid integer value.");
+                return new ValidationResult(false, "Unesite celobrojnu vrednost. ");
             }
             catch
             {
-                return new ValidationResult(false, "Unknown error occured.");
+                return new ValidationResult(false, "Unknown error occured. ");
             }
         }
     }
 
-    public class IdEtiketaValidationRule : ValidationRule
+    public class StringToDouble : ValidationRule
     {
-        Species sWindow;
-        public IdEtiketaValidationRule(Species s)
+        public override ValidationResult Validate(object value, System.Globalization.CultureInfo cultureInfo)
         {
-            sWindow = s;
+            try
+            {
+                var s = value as string;
+                double r;
+                if (double.TryParse(s, out r))
+                {
+                    return new ValidationResult(true, null);
+                }
+                return new ValidationResult(false, "Unesite broj. ");
+            }
+            catch
+            {
+                return new ValidationResult(false, "Unknown error occured. ");
+            }
+        }
+    }
+
+    public class Z_IdValidationRule : ValidationRule
+    {
+        Species window;
+        ObservableCollection<Animal> Zivotinje = new ObservableCollection<Animal>();
+
+        public Z_IdValidationRule()
+        {
+            Zivotinje = (ObservableCollection<Animal>)window.zivotinje.SelectedItems[0];
         }
 
         public override ValidationResult Validate(object value, System.Globalization.CultureInfo cultureInfo)
@@ -45,9 +70,15 @@ namespace ProjektniZadatak.Validation
                 int r;
                 int.TryParse(s, out r);
                 
-                //Ako postoji taj id
-
-                return new ValidationResult(false, "Unesena id vrednost nije jedinstvena.");
+                if (Zivotinje.Any(x => x.Id == window.IdZivotinje.Text))
+                {
+                    return new ValidationResult(false, "Unesena id vrednost nije jedinstvena.");
+                }
+                else
+                {
+                    return new ValidationResult(true, null);
+                }
+                
             }
             catch
             {
@@ -55,23 +86,5 @@ namespace ProjektniZadatak.Validation
             }
         }
     }
-
-    public class EValidationRule : ValidationRule
-    {
-        
-        public override ValidationResult Validate(object value, CultureInfo cultureInfo)
-        {
-            string content = value.ToString();
-
-            if (string.Equals(content, ""))
-            {
-                return new ValidationResult(false, "Field can not be empty!");
-
-            }
-            else
-                return new ValidationResult(true, null);
-        }
-    }
-    
     
 }

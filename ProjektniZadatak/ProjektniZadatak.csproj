@@ -84,6 +84,9 @@
     <Compile Include="Prozori\EtiketaProzor.xaml.cs">
       <DependentUpon>EtiketaProzor.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Prozori\Load.xaml.cs">
+      <DependentUpon>Load.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Prozori\Map.xaml.cs">
       <DependentUpon>Map.xaml</DependentUpon>
     </Compile>
@@ -111,6 +114,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Prozori\EtiketaProzor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Prozori\Load.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -205,6 +212,18 @@
   <ItemGroup>
     <Resource Include="zebraColor.jpg" />
     <Resource Include="zebraH.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Prozori\folder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Prozori\save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="folder.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

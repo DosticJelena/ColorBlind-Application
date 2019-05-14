@@ -12,15 +12,46 @@ namespace ProjektniZadatak.Validation
     {
         public override ValidationResult Validate(object value, CultureInfo cultureInfo)
         {
+            if (value == null)
+            {
+                value = "";
+            }
             string content = value.ToString();
 
             if (string.Equals(content, ""))
             {
-                return new ValidationResult(false, "Field can not be empty!");
+                return new ValidationResult(false, "Polje nije popunjeno. ");
 
             }
             else
+            {
                 return new ValidationResult(true, null);
+
+            }
         }
     }
+
+    public class EmptyValidationRuleShort : ValidationRule
+    {
+        public override ValidationResult Validate(object value, CultureInfo cultureInfo)
+        {
+            if (value == null)
+            {
+                value = "";
+            }
+            string content = value.ToString();
+
+            if (string.Equals(content, ""))
+            {
+                return new ValidationResult(false, "!  ");
+
+            }
+            else
+            {
+                return new ValidationResult(true, null);
+
+            }
+        }
+    }
+
 }
