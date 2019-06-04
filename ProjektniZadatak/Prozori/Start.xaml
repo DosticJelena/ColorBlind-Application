@@ -24,7 +24,9 @@
         </Grid.RowDefinitions>
         <Label Grid.Column="1" Grid.Row="2" Margin="0,3" FontFamily="Microsoft YaHei UI Light" FontSize="26" FontWeight="Bold" Foreground="White" BorderThickness="0,0,0,1" BorderBrush="#FFE58C67" OpacityMask="Black" Background="Black" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">Naziv Aplikacije
         </Label>
-        <Button Grid.Column="1" Grid.Row="3" Margin="0,3" FontFamily="Microsoft YaHei UI Light" FontSize="22" FontWeight="Bold" Foreground="Black" BorderThickness="0,0,0,1" BorderBrush="#FFA94319" Background="#FFE58C67" Click="Button_Click" Width="250" Cursor="Hand" Height="50" VerticalAlignment="Top">Pokreni
+        <Button Grid.Column="1" Grid.Row="3" Margin="0,3" FontFamily="Microsoft YaHei UI Light" FontSize="22" FontWeight="Bold" Foreground="Black" BorderThickness="0,0,0,1" BorderBrush="#FFE58C67" Background="#FFE58C67" Click="Button_Click" Width="250" Cursor="Hand" Height="90" VerticalAlignment="Top" HorizontalAlignment="Left">Pokreni
+        </Button>
+        <Button Grid.Column="1" Grid.Row="3" Margin="0,3" FontFamily="Microsoft YaHei UI Light" FontSize="22" FontWeight="Bold" Foreground="Black" BorderThickness="0,0,0,1" BorderBrush="#FFE58C67" Background="#FFE58C67" Click="Tutorial" Width="250" Cursor="Hand" Height="90" VerticalAlignment="Top" HorizontalAlignment="Right">Tutorial
         </Button>
     </Grid>
 </Window>

@@ -126,3 +126,9 @@ C:\Users\jelen\Documents\GitHub\ColorBlind-Application\ProjektniZadatak\bin\Debu
 C:\Users\jelen\Documents\GitHub\ColorBlind-Application\ProjektniZadatak\obj\Debug\Prozori\Load.g.cs
 C:\Users\jelen\Documents\GitHub\ColorBlind-Application\ProjektniZadatak\obj\Debug\Prozori\Load.baml
 C:\Users\jelen\Documents\GitHub\ColorBlind-Application\ProjektniZadatak\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\jelen\Documents\GitHub\ColorBlind-Application\ProjektniZadatak\bin\Debug\Simplify.Resources.dll
+C:\Users\jelen\Documents\GitHub\ColorBlind-Application\ProjektniZadatak\bin\Debug\Simplify.Windows.Forms.dll
+C:\Users\jelen\Documents\GitHub\ColorBlind-Application\ProjektniZadatak\bin\Debug\Simplify.Resources.xml
+C:\Users\jelen\Documents\GitHub\ColorBlind-Application\ProjektniZadatak\bin\Debug\Simplify.Windows.Forms.xml
+C:\Users\jelen\Documents\GitHub\ColorBlind-Application\ProjektniZadatak\obj\Debug\Prozori\Tutorial.g.cs
+C:\Users\jelen\Documents\GitHub\ColorBlind-Application\ProjektniZadatak\obj\Debug\Prozori\Tutorial.baml

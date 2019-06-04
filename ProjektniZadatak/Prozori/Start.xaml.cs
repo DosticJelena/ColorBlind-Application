@@ -28,8 +28,17 @@ namespace ProjektniZadatak.Prozori
         {
             Window1 w = new Window1();
             //Load w = new Load();
+            ((Button)sender).Cursor = Cursors.Wait;
             w.Show();
             this.Visibility = Visibility.Hidden;
         }
+
+        private void Tutorial(object sender, RoutedEventArgs e)
+        {
+            Tutorial t = new Tutorial();
+            t.Show();
+            //this.Visibility = Visibility.Hidden;
+        }
+
     }
 }

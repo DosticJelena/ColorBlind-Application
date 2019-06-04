@@ -27,6 +27,7 @@ namespace ProjektniZadatak
         public event PropertyChangedEventHandler PropertyChanged;
         public static int brojac=0;
         private int animalIndex;
+        private Window1 win1;
         
 
         private int z_id;
@@ -160,13 +161,14 @@ namespace ProjektniZadatak
             }
         }
         
-        public Species(ObservableCollection<Etiketa> e, ObservableCollection<Tip> t, ObservableCollection<Animal> a)
+        public Species(ObservableCollection<Etiketa> e, ObservableCollection<Tip> t, ObservableCollection<Animal> a,Window1 w)
         {
             InitializeComponent();
 
             this.Animals = a;
             this.Etikete = e;
             this.Tipovi = t;
+            this.win1 = w;
 
             RightRectangle.Visibility = Visibility.Hidden;
             EtiketaPanel.Visibility = Visibility.Hidden;
@@ -215,12 +217,63 @@ namespace ProjektniZadatak
         // Dugmici za dodavanje, azuriranje i brisanje zivotinje iz liste
         private void Dodavanje_Zivotinje(object sender, RoutedEventArgs e)
         {
-            if (pickDatum.SelectedDate == null || TipZivotinje.SelectedItem == null|| StTurZivotinje.SelectedItem == null || StUgrZivotinje == null
+            if (pickDatum.SelectedDate == null || TipZivotinje.SelectedItem == null|| StTurZivotinje.SelectedItem == null || StUgrZivotinje.SelectedItem == null
                 || IdZivotinje.Text.Equals("") || ImeZivotinje.Text.Equals("") || godPrihod.Text.Equals(""))
             {
+                lDatum.Foreground = new SolidColorBrush(Colors.White);
+                lTip.Foreground = new SolidColorBrush(Colors.White);
+                lStTur.Foreground = new SolidColorBrush(Colors.White);
+                lStUgr.Foreground = new SolidColorBrush(Colors.White);
+                lId.Foreground = new SolidColorBrush(Colors.White);
+                lIme.Foreground = new SolidColorBrush(Colors.White);
+                godPrihod.Foreground = new SolidColorBrush(Colors.White);
+
+                if (pickDatum.SelectedDate == null)
+                {
+                    lDatum.Foreground = new SolidColorBrush(Colors.Red);
+                }
+
+                if (TipZivotinje.SelectedItem == null)
+                {
+                    lTip.Foreground = new SolidColorBrush(Colors.Red);
+                }
+
+                if (StTurZivotinje.SelectedItem == null)
+                {
+                    lStTur.Foreground = new SolidColorBrush(Colors.Red);
+                }
+
+                if (StUgrZivotinje.SelectedItem == null)
+                {
+                    lStUgr.Foreground = new SolidColorBrush(Colors.Red);
+                }
+
+                if (IdZivotinje.Text.Equals(""))
+                {
+                    lId.Foreground = new SolidColorBrush(Colors.Red);
+                }
+
+                if (ImeZivotinje.Text.Equals(""))
+                {
+                    lIme.Foreground = new SolidColorBrush(Colors.Red);
+                }
+
+                if (godPrihod.Text.Equals(""))
+                {
+                    lGodPrihod.Foreground = new SolidColorBrush(Colors.Red);
+                }
+
                 return;
             }
-            
+
+            lDatum.Foreground = new SolidColorBrush(Colors.White);
+            lTip.Foreground = new SolidColorBrush(Colors.White);
+            lStTur.Foreground = new SolidColorBrush(Colors.White);
+            lStUgr.Foreground = new SolidColorBrush(Colors.White);
+            lId.Foreground = new SolidColorBrush(Colors.White);
+            lIme.Foreground = new SolidColorBrush(Colors.White);
+            lGodPrihod.Foreground = new SolidColorBrush(Colors.White);
+
                 Animal.TuristickiStatus st1 = (Animal.TuristickiStatus)Enum.Parse(typeof(Animal.TuristickiStatus), StTurZivotinje.Text);
                 Animal.StatusUgrozenosti st2 = (Animal.StatusUgrozenosti)Enum.Parse(typeof(Animal.StatusUgrozenosti), StUgrZivotinje.Text);
 
@@ -388,6 +441,14 @@ namespace ProjektniZadatak
         // Selektovani element liste
         private void Selekcija_Liste(object sender, SelectionChangedEventArgs e)
         {
+            lDatum.Foreground = new SolidColorBrush(Colors.White);
+            lTip.Foreground = new SolidColorBrush(Colors.White);
+            lStTur.Foreground = new SolidColorBrush(Colors.White);
+            lStUgr.Foreground = new SolidColorBrush(Colors.White);
+            lId.Foreground = new SolidColorBrush(Colors.White);
+            lIme.Foreground = new SolidColorBrush(Colors.White);
+            lGodPrihod.Foreground = new SolidColorBrush(Colors.White);
+
             visibility_settings_list((ListView)sender);
             if (Animals.Count > 0)
             {
@@ -442,6 +503,10 @@ namespace ProjektniZadatak
 
         private void Selekcija_Liste_Etikete(object sender, SelectionChangedEventArgs e)
         {
+            lIdE.Foreground = new SolidColorBrush(Colors.White);
+            lOpisE.Foreground = new SolidColorBrush(Colors.White);
+            lBoja.Foreground = new SolidColorBrush(Colors.White);
+
             if (Etikete.Count > 0)
             {
                 Etiketa et = new Etiketa();
@@ -470,6 +535,10 @@ namespace ProjektniZadatak
 
         private void Selekcija_Liste_Tipovi(object sender, SelectionChangedEventArgs e)
         {
+            lab1.Foreground = new SolidColorBrush(Colors.White);
+            lab2.Foreground = new SolidColorBrush(Colors.White);
+            lab4.Foreground = new SolidColorBrush(Colors.White);
+
             if (Tipovi.Count > 0)
             {
                 Tip t = new Tip();
@@ -503,10 +572,33 @@ namespace ProjektniZadatak
         {
             if (idEtiketa.Text.Equals("") || opisEtiketa.Text.Equals("") || cbBoja.SelectedColor == null)
             {
+                lIdE.Foreground = new SolidColorBrush(Colors.White);
+                lOpisE.Foreground = new SolidColorBrush(Colors.White);
+                lBoja.Foreground = new SolidColorBrush(Colors.White);
+
+                if (idEtiketa.Text.Equals(""))
+                {
+                    lIdE.Foreground = new SolidColorBrush(Colors.Red);
+                }
+
+                if (cbBoja.SelectedColor == null)
+                {
+                    lBoja.Foreground = new SolidColorBrush(Colors.Red);
+                }
+
+                if (opisEtiketa.Text.Equals(""))
+                {
+                    lOpisE.Foreground = new SolidColorBrush(Colors.Red);
+                }
+
                 return;
             }
 
-             Etikete.Add(new Model.Etiketa { Id = double.Parse(idEtiketa.Text), Opis = opisEtiketa.Text, Boja = (Color)cbBoja.SelectedColor});
+            lIdE.Foreground = new SolidColorBrush(Colors.White);
+            lOpisE.Foreground = new SolidColorBrush(Colors.White);
+            lBoja.Foreground = new SolidColorBrush(Colors.White);
+
+            Etikete.Add(new Model.Etiketa { Id = double.Parse(idEtiketa.Text), Opis = opisEtiketa.Text, Boja = (Color)cbBoja.SelectedColor});
                 
              EtiketaPanel.Visibility = Visibility.Hidden;
             
@@ -549,9 +641,32 @@ namespace ProjektniZadatak
         {
             if (idTipa.Text.Equals("") || imeTipa.Text.Equals("") || Ikonica.Source == null)
             {
+                lab1.Foreground = new SolidColorBrush(Colors.White);
+                lab2.Foreground = new SolidColorBrush(Colors.White);
+                lab4.Foreground = new SolidColorBrush(Colors.White);
+
+                if (idTipa.Text.Equals(""))
+                {
+                    lab1.Foreground = new SolidColorBrush(Colors.Red);
+                }
+
+                if (Ikonica.Source == null)
+                {
+                    lab4.Foreground = new SolidColorBrush(Colors.Red);
+                }
+
+                if (imeTipa.Text.Equals(""))
+                {
+                    lab2.Foreground = new SolidColorBrush(Colors.Red);
+                }
+
                 return;
             }
 
+            lab1.Foreground = new SolidColorBrush(Colors.White);
+            lab2.Foreground = new SolidColorBrush(Colors.White);
+            lab4.Foreground = new SolidColorBrush(Colors.White);
+            
             Uri myUri = new Uri(Ikonica.Source.ToString(), UriKind.RelativeOrAbsolute);
             BitmapDecoder decoder = BitmapDecoder.Create(myUri, BitmapCreateOptions.PreservePixelFormat, BitmapCacheOption.Default);
             BitmapSource bitmapSource = decoder.Frames[0];
@@ -664,6 +779,7 @@ namespace ProjektniZadatak
         private void Back(object sender, RoutedEventArgs e)
         {
             this.Visibility = Visibility.Hidden;
+            win1.updateCursors();
         }
 
         //prikaz
@@ -835,6 +951,11 @@ namespace ProjektniZadatak
             }
 
             
+        }
+
+        private void IdEtiketa_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }

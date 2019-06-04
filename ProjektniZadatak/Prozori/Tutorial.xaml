@@ -1,0 +1,644 @@
+﻿<Window x:Class="ProjektniZadatak.Prozori.Tutorial"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProjektniZadatak"
+        xmlns:prozori="clr-namespace:ProjektniZadatak.Prozori"
+        xmlns:data="using:ProjektniZadatak.List"
+        xmlns:val="clr-namespace:ProjektniZadatak.Validation"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        mc:Ignorable="d"
+        Title="Species" Height="500" Width="900" Icon="dog-paw.png" WindowState="Maximized" ResizeMode="NoResize" WindowStyle="None" >
+    <Window.Background>
+        <ImageBrush ImageSource="/ProjektniZadatak;component/zebraH.jpg" Stretch="UniformToFill"/>
+    </Window.Background>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="4*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="40"/>
+            </Grid.ColumnDefinitions>
+            <Rectangle Grid.Column="0" Width="0" Fill="Black"></Rectangle>
+            <StackPanel Grid.Column="2" Orientation="Vertical" Width="40" Background="Black"></StackPanel>
+
+            <!-- NOVA ZIVOTINJA -->
+            <Grid Grid.Column="1" Name="RightRectangle">
+                <Grid.Background>
+                    <SolidColorBrush Color="Black" Opacity="0.65"/>
+                </Grid.Background>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="180"/>
+                    <ColumnDefinition Width="40"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="2*"/>
+                </Grid.RowDefinitions>
+
+                <Label Name="lId" Grid.Column="1" Grid.Row="1" Foreground="#FFFCFCFC" HorizontalAlignment="Right" FontFamily="Microsoft YaHei Light" FontSize="18" VerticalAlignment="Center" Margin="0,0,10,0">Id:</Label>
+                <Label Name="lIme" Grid.Column="1" Grid.Row="2" Foreground="#FFFCFCFC" HorizontalAlignment="Right" FontFamily="Microsoft YaHei Light" FontSize="18" VerticalAlignment="Center" Margin="0,0,10,0">Ime:</Label>
+                <Label Name="lOpis" Grid.Column="1" Grid.Row="3" Foreground="#FFFCFCFC" HorizontalAlignment="Right" FontFamily="Microsoft YaHei Light" FontSize="18" VerticalAlignment="Center" Margin="0,0,10,0">Opis:</Label>
+                <Label Name="lStUgr" Grid.Column="1" Grid.Row="4" Foreground="#FFFCFCFC" HorizontalAlignment="Right" FontFamily="Microsoft YaHei Light" FontSize="18" VerticalAlignment="Center" Margin="0,0,10,0">Status ugrozenosti:</Label>
+                <Label Name="lStTur" Grid.Column="1" Grid.Row="5" Foreground="#FFFCFCFC" HorizontalAlignment="Right" FontFamily="Microsoft YaHei Light" FontSize="18" VerticalAlignment="Center" Margin="0,0,10,0">Turisticki status:</Label>
+                <Label Name="lTip" Grid.Column="1" Grid.Row="9" Foreground="#FFFCFCFC" HorizontalAlignment="Right" FontFamily="Microsoft YaHei Light" FontSize="18" VerticalAlignment="Center" Margin="0,0,10,0">Tip:</Label>
+                <Label Grid.Column="1" Grid.Row="6" Foreground="#FFFCFCFC" HorizontalAlignment="Right" FontFamily="Microsoft YaHei Light" FontSize="18" VerticalAlignment="Center" Margin="0,0,10,0" Name="lSlika">Slika:</Label>
+                <Label Grid.Column="3" Grid.Row="9" Foreground="#FFFCFCFC" HorizontalAlignment="Right" FontFamily="Microsoft YaHei Light" FontSize="18" VerticalAlignment="Center" Margin="0,0,10,0" Name="lEtikete">Etikete:</Label>
+                <Label Grid.Column="3" Grid.Row="6" Foreground="#FFFCFCFC" HorizontalAlignment="Right" FontFamily="Microsoft YaHei Light" FontSize="18" VerticalAlignment="Center" Margin="0,0,10,0" Name="lOpasna">Opasna:</Label>
+                <Label Grid.Column="3" Grid.Row="7" Foreground="#FFFCFCFC" HorizontalAlignment="Right" FontFamily="Microsoft YaHei Light" FontSize="18" VerticalAlignment="Center" Margin="0,0,10,0" Name="lNasReg">Naseljeni region:</Label>
+                <Label Grid.Column="3" Grid.Row="8" Foreground="#FFFCFCFC" HorizontalAlignment="Right" FontFamily="Microsoft YaHei Light" FontSize="18" VerticalAlignment="Center" Margin="0,0,10,0" Name="lCrvenaLista">Crvena lista:</Label>
+                <Label Name="lDatum" Grid.Column="3" Grid.Row="5" Foreground="#FFFCFCFC" HorizontalAlignment="Right" FontFamily="Microsoft YaHei Light" FontSize="18" VerticalAlignment="Center" Margin="0,0,10,0">Datum:</Label>
+                <Label Name ="lGodPrihod" Grid.Column="3" Grid.Row="4" Foreground="#FFFCFCFC" HorizontalAlignment="Right" FontFamily="Microsoft YaHei Light" FontSize="18" VerticalAlignment="Center" Margin="0,0,10,0">Godisnji prihod:</Label>
+
+                <Button Name="btnDodajSliku" Grid.Column="1" Grid.Row="8" Foreground="#FF020202" HorizontalAlignment="Right" FontFamily="Microsoft YaHei Light" FontSize="14" VerticalAlignment="Center" Padding="5" Click="Add_Image" Margin="0,0,5,0" Cursor="Hand">Uvoz slike</Button>
+                <Button Name="btnDodajUListu" Grid.Column="3" Grid.Row="11" Foreground="Black" FontFamily="Microsoft YaHei Light" FontSize="20" Margin="9" Padding="5" Click="Dodavanje_Zivotinje" Width="150" HorizontalAlignment="Left" FontWeight="Bold" Cursor="Hand">
+                    <Button.Background>
+                        <SolidColorBrush Color="White" Opacity="0.4"/>
+                    </Button.Background> Dodati
+                </Button>
+                <Button Name="btnAzurirajListu" Grid.Column="3" Grid.Row="11" Foreground="Black" FontFamily="Microsoft YaHei Light" FontSize="20" Margin="9" Padding="5" Click="Azuriranje_Zivotinje" Width="150" HorizontalAlignment="Left" FontWeight="Bold" Cursor="Hand">
+                    <Button.Background>
+                        <SolidColorBrush Color="White" Opacity="0.4"/>
+                    </Button.Background> Azurirati
+                </Button>
+                <Button Name="btnObrisi" Grid.Column="2" Grid.Row="11" Foreground="Black" FontFamily="Microsoft YaHei Light" FontSize="20" Margin="9" Padding="5" Click="Brisanje_Zivotinje" HorizontalAlignment="Right" Width="150" FontWeight="Bold" Cursor="Hand">
+                    <Button.Background>
+                        <SolidColorBrush Color="#FFFDFDFD" Opacity="0.4"/>
+                    </Button.Background> Obrisati
+                </Button>
+                <Button Name="btnNextZ" Grid.Column="2" Grid.Row="11" Foreground="Black" FontFamily="Microsoft YaHei Light" FontSize="20" Margin="9" Padding="5" Click="NextZ" HorizontalAlignment="Right" Width="150" FontWeight="Bold" Cursor="Hand">
+                    <Button.Background>
+                        <SolidColorBrush Color="#FFFDFDFD" Opacity="0.4"/>
+                    </Button.Background> Dalje
+                </Button>
+
+                <DatePicker Name="pickDatum" Grid.Row="5" Grid.Column="4" Background="Black" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,0" FontFamily="Microsoft YaHei Light" FontSize="16" BorderThickness="0" Cursor="Hand">
+                    <DatePicker.SelectedDate>
+                        <Binding Path="Z_Datum" UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <val:EmptyValidationRuleShort />
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </DatePicker.SelectedDate>
+                    <Validation.ErrorTemplate>
+                        <ControlTemplate>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+
+                                <AdornedElementPlaceholder Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" x:Name="pickDatum"/>
+                            </Grid>
+                        </ControlTemplate>
+                    </Validation.ErrorTemplate>
+                </DatePicker>
+                <TextBox Name="godPrihod" Grid.Column="4" Grid.Row="4" Background="White" Margin="0,5,5,5" FontSize="14" FontFamily="Microsoft YaHei Light" Padding="10,10,0,0">
+                    <TextBox.Text>
+                        <Binding Path="Z_Cena" UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <val:EmptyValidationRuleShort />
+                                <val:StringToDouble />
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                    <Validation.ErrorTemplate>
+                        <ControlTemplate>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+
+                                <AdornedElementPlaceholder Grid.Column="0" Grid.Row="0" x:Name="godPrihod"/>
+                                <TextBox Grid.Column="1" Grid.Row="0" Text="{Binding [0].ErrorContent}"  VerticalContentAlignment="Center" FontFamily="Microsoft YaHei Light" FontSize="16" Padding="10,0,0,0" Foreground="Red"/>
+                            </Grid>
+                        </ControlTemplate>
+                    </Validation.ErrorTemplate>
+                </TextBox>
+
+                <TextBox Name="IdZivotinje" Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="3"  Margin="0,5,5,5" VerticalContentAlignment="Center" FontFamily="Microsoft YaHei Light" FontSize="16" Padding="10,0,0,0">
+                    <TextBox.Background>
+                        <SolidColorBrush Color="White"/>
+                    </TextBox.Background>
+                    <TextBox.Text>
+                        <Binding Path="Z_Id" UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <val:EmptyValidationRule />
+                                <val:StringToInt />
+                                <!--<val:Z_IdValidationRule />-->
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                    <Validation.ErrorTemplate>
+                        <ControlTemplate>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+
+                                <AdornedElementPlaceholder Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" x:Name="IdZivotinje"/>
+                                <TextBox Grid.Column="1" Grid.Row="0" Text="{Binding [0].ErrorContent}"  VerticalContentAlignment="Center" FontFamily="Microsoft YaHei Light" FontSize="16" Padding="10,0,0,0" Foreground="Red"/>
+                            </Grid>
+                        </ControlTemplate>
+                    </Validation.ErrorTemplate>
+                </TextBox>
+                <TextBox Name="ImeZivotinje" Grid.Column="2" Grid.Row="2" Grid.ColumnSpan="3"  Margin="0,5,5,5" VerticalContentAlignment="Center" FontFamily="Microsoft YaHei Light" FontSize="16" Padding="10,0,0,0">
+                    <TextBox.Background>
+                        <SolidColorBrush Color="White"/>
+                    </TextBox.Background>
+                    <TextBox.Text>
+                        <Binding Path="Z_Ime" UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <val:EmptyValidationRule />
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                    <Validation.ErrorTemplate>
+                        <ControlTemplate>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+
+                                <AdornedElementPlaceholder Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" x:Name="ImeZivotinje"/>
+                                <TextBox Grid.Column="1" Grid.Row="0" Text="{Binding [0].ErrorContent}"  VerticalContentAlignment="Center" FontFamily="Microsoft YaHei Light" FontSize="16" Padding="10,0,0,0" Foreground="Red"/>
+                            </Grid>
+                        </ControlTemplate>
+                    </Validation.ErrorTemplate>
+                </TextBox>
+                <TextBox Name="OpisZivotinje" Grid.Column="2" Grid.Row="3" Grid.ColumnSpan="3" Background="White" Margin="0,5,5,5" FontSize="14" FontFamily="Microsoft YaHei Light" Text="{Binding Path=Opis}" Padding="10,10,0,0">
+
+                </TextBox>
+
+                <ComboBox Name="StUgrZivotinje" Grid.Column="2" Grid.Row="4" Margin="0,5,5,5" FontFamily="Microsoft YaHei Light" FontSize="16" VerticalContentAlignment="Center" Cursor="Hand">
+                    <ComboBoxItem>KriticnoUgrozena</ComboBoxItem>
+                    <ComboBoxItem>Ugrozena</ComboBoxItem>
+                    <ComboBoxItem>Ranjiva</ComboBoxItem>
+                    <ComboBoxItem>ZavisnaOdStanista</ComboBoxItem>
+                    <ComboBoxItem>BlizuRizika</ComboBoxItem>
+                    <ComboBoxItem>MinRizika</ComboBoxItem>
+                </ComboBox>
+                <ComboBox Name="StTurZivotinje" Grid.Column="2" Grid.Row="5" Margin="0,5,5,5" SelectedValue="{Binding Path=StTur}" FontFamily="Microsoft YaHei Light" FontSize="16" VerticalContentAlignment="Center" Cursor="Hand">
+                    <ComboBoxItem>Izolovana</ComboBoxItem>
+                    <ComboBoxItem>DelimicnoHabituirana</ComboBoxItem>
+                    <ComboBoxItem>Habituirana</ComboBoxItem>
+                </ComboBox>
+
+                <StackPanel Grid.Column="2" Grid.Row="9" VerticalAlignment="Center">
+                    <ComboBox Name="TipZivotinje" 
+                          Margin="0,5,5,5" 
+                          SelectedValue="{Binding Path=TipZiv}"
+                          FontFamily="Microsoft YaHei Light" FontSize="16" VerticalContentAlignment="Center"                         
+                          ItemsSource="{Binding Path=Tipovi}"  
+                          DisplayMemberPath="Ime" Cursor="Hand"/>
+
+                </StackPanel>
+                <StackPanel Grid.Column="4" Grid.Row="9" VerticalAlignment="Center">
+                    <xctk:CheckComboBox x:Name="EtiketeZivotinje"
+                             Margin="0,5,5,5"
+                             VerticalAlignment="Center"
+                             FontFamily="Microsoft YaHei Light" FontSize="16" VerticalContentAlignment="Center"
+                             SelectedItemsOverride="{Binding Path=EtiketeZiv}"
+                             ItemsSource="{Binding Path=Etikete, Mode=OneWay}"
+                             DisplayMemberPath="Id" Cursor="Hand"/>
+                </StackPanel>
+
+                <Rectangle Name="rctSlika" Grid.Column="2" Grid.Row="6" Grid.RowSpan="3" Margin="0,0,5,0">
+                    <Rectangle.Fill>
+                        <SolidColorBrush Color="White" Opacity="0.6"/>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <Image Name="SlikaZivotinje" Grid.Column="2" Grid.Row="6" Grid.RowSpan="3"></Image>
+
+                <CheckBox Name="cbOpasna" Grid.Column="4" Grid.Row="6" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5,0,0,0" Width="16" Height="16" IsChecked="{Binding Path=Opasna}" Cursor="Hand"></CheckBox>
+                <CheckBox Name="cbNaseljeniRegion" Grid.Column="4" Grid.Row="7" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5,0,0,0" Width="16" Height="16" IsChecked="{Binding Path=NaseljeniRegion}" Cursor="Hand"></CheckBox>
+                <CheckBox Name="cbCrvenaLista" Grid.Column="4" Grid.Row="8" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5,0,0,0" Width="16" Height="16" IsChecked="{Binding Path=CrvenaLista}" Cursor="Hand"></CheckBox>
+
+            </Grid>
+        </Grid>
+
+        <!-- NOVI TIP -->
+        <Grid Grid.Column="1" Name="PanelTip">
+            <Grid.Background>
+                <SolidColorBrush Color="Black" Opacity="0.65"/>
+            </Grid.Background>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="40"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="4*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="6*"/>
+            </Grid.RowDefinitions>
+
+            <Rectangle Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4">
+
+            </Rectangle>
+            <Rectangle Grid.Column="2" Grid.Row="1" Grid.RowSpan="4" Fill="#FFCBCBCB"></Rectangle>
+
+            <Button Name="btnKreirajTip" Grid.Column="3" Grid.Row="4" Margin="10,10,20,10" Foreground="Black" FontFamily="Microsoft YaHei Light" FontSize="20" Click="Dodaj_Tip" FontWeight="Bold" Cursor="Hand">
+                <Button.Background>
+                    <SolidColorBrush Color="White" Opacity="0.4"/>
+                </Button.Background> Dodati
+            </Button>
+
+            <Button Name="btnAzurirajTip" Grid.Column="3" Grid.Row="4" Margin="10,10,20,10" Foreground="Black" FontFamily="Microsoft YaHei Light" FontSize="20" Click="Azuriraj_Tip" FontWeight="Bold" Cursor="Hand">
+                <Button.Background>
+                    <SolidColorBrush Color="White" Opacity="0.4"/>
+                </Button.Background> Azurirati
+            </Button>
+
+            <Button Name="btnObrisiTip" Grid.Column="3" Grid.Row="1" Margin="10,10,20,10" Foreground="Black" FontFamily="Microsoft YaHei Light" FontSize="20" Click="Obrisi_Tip" FontWeight="Bold" Cursor="Hand">
+                <Button.Background>
+                    <SolidColorBrush Color="White" Opacity="0.4"/>
+                </Button.Background> Obrisati
+            </Button>
+
+            <Button Name="btnPonisti" Grid.Column="3" Grid.Row="3" Margin="10,10,20,10" Foreground="Black" FontFamily="Microsoft YaHei Light" FontSize="20" Click="Nazad" FontWeight="Bold" Cursor="Hand">
+                <Button.Background>
+                    <SolidColorBrush Color="White" Opacity="0.4"/>
+                </Button.Background> Nazad
+            </Button>
+
+            <Button Name="btnObrisiTip2" Grid.Column="3" Grid.Row="4" Margin="10,10,20,10" Foreground="Black" FontFamily="Microsoft YaHei Light" FontSize="20" Click="Obrisi_Tip2" FontWeight="Bold" Cursor="Hand">
+                <Button.Background>
+                    <SolidColorBrush Color="White" Opacity="0.4"/>
+                </Button.Background> Obrisati
+            </Button>
+            <Button Name="btnNext" Grid.Column="3" Grid.Row="1" Margin="10,10,20,10" Foreground="Black" FontFamily="Microsoft YaHei Light" FontSize="20" Click="Next" FontWeight="Bold" Cursor="Hand">
+                <Button.Background>
+                    <SolidColorBrush Color="White" Opacity="0.4"/>
+                </Button.Background> Dalje
+            </Button>
+
+            <TextBlock Name="upozorenje" Grid.RowSpan="3" Grid.Row="2" Grid.Column="1" Foreground="#FFFAFAFA" FontSize="20" FontFamily="Microsoft YaHei Light" TextWrapping="Wrap">Upozorenje! Sve zivotinje koje pripadaju ovom tipu bice obrisane. Da li sigurno zelite da obrisete ovaj tip?</TextBlock>
+
+            <Label Name="noviT" Grid.Column="0" Grid.Row="0" Foreground="#FFE58C67" FontFamily="Microsoft YaHei Light" FontSize="25" HorizontalAlignment="Center" VerticalAlignment="Center">Novi Tip</Label>
+            <Label Name="lab1" Grid.Row="1" Grid.Column="0" Foreground="White" HorizontalAlignment="Right" VerticalAlignment="Center" FontFamily="Microsoft JhengHei Light" FontSize="18">Id:</Label>
+            <Label Name="lab2" Grid.Row="2" Grid.Column="0" Foreground="White" HorizontalAlignment="Right" VerticalAlignment="Center" FontFamily="Microsoft JhengHei Light" FontSize="18">Ime:</Label>
+            <Label Name="lab3" Grid.Row="3" Grid.Column="0" Foreground="White" HorizontalAlignment="Right" VerticalAlignment="Top" FontFamily="Microsoft JhengHei Light" FontSize="18" Margin="0,10,0,0">Opis:</Label>
+            <Label Name="lab4" Grid.Row="4" Grid.Column="0" Foreground="White" HorizontalAlignment="Right" VerticalAlignment="Top" FontFamily="Microsoft JhengHei Light" FontSize="18" Margin="0,10,0,0">Ikonica:</Label>
+
+            <TextBox Name="idTipa" Grid.Row="1" Grid.Column="1" Margin="10,10,20,10" VerticalContentAlignment="Center" Padding="10,0,0,0" FontFamily="Microsoft YaHei Light" FontSize="14">
+                <TextBox.Text>
+                    <Binding Path="T_Id" UpdateSourceTrigger="PropertyChanged">
+                        <Binding.ValidationRules>
+                            <val:EmptyValidationRule />
+                            <val:StringToInt />
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+                <Validation.ErrorTemplate>
+                    <ControlTemplate>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+
+                            <AdornedElementPlaceholder Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" x:Name="idTipa"/>
+                            <TextBox Grid.Column="1" Grid.Row="0" Text="{Binding [0].ErrorContent}"  VerticalContentAlignment="Center" FontFamily="Microsoft YaHei Light" FontSize="16" Padding="10,0,0,0" Foreground="Red"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Validation.ErrorTemplate>
+            </TextBox>
+            <TextBox Name="imeTipa" Grid.Row="2" Grid.Column="1" Margin="10,10,20,10" VerticalContentAlignment="Center" Padding="10,0,0,0" FontFamily="Microsoft YaHei Light" FontSize="14">
+                <TextBox.Text>
+                    <Binding Path="T_Ime" UpdateSourceTrigger="PropertyChanged">
+                        <Binding.ValidationRules>
+                            <val:EmptyValidationRule />
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+                <Validation.ErrorTemplate>
+                    <ControlTemplate>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+
+                            <AdornedElementPlaceholder Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" x:Name="imeTipa"/>
+                            <TextBox Grid.Column="1" Grid.Row="0" Text="{Binding [0].ErrorContent}"  VerticalContentAlignment="Center" FontFamily="Microsoft YaHei Light" FontSize="16" Padding="10,0,0,0" Foreground="Red"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Validation.ErrorTemplate>
+            </TextBox>
+
+            <TextBox Name="opisTipa" Grid.Row="3" Grid.Column="1" Margin="10,10,20,10" Padding="10,10,0,0" FontFamily="Microsoft YaHei Light" FontSize="14" Text="{Binding Path=Opis}"/>
+
+            <Rectangle Name="rctSlikaa" Grid.Row="4" Grid.Column="1" Margin="10,10,20,10" Width="104" HorizontalAlignment="Left">
+                <Rectangle.Fill>
+                    <SolidColorBrush Color="White" Opacity="0.4"/>
+                </Rectangle.Fill>
+            </Rectangle>
+            <Image Name="Ikonica" Grid.Row="4" Grid.Column="1" Margin="10,10,20,10" Width="104" HorizontalAlignment="Left"></Image>
+
+            <Button Name="uvozIkonice" Grid.Row="4" Grid.Column="1" Margin="130,10,20,10" VerticalAlignment="Bottom" MinHeight="45" HorizontalAlignment="Left" Padding="15,1" Click="Dodaj_Ikonicu" FontFamily="Microsoft JhengHei Light" FontSize="14" Cursor="Hand">Uvoz ikonice</Button>
+
+        </Grid>
+
+        <!-- NOVA ETIKETA -->
+        <Grid Grid.Column="1" Name="EtiketaPanel">
+            <Grid.Background>
+                <SolidColorBrush Color="Black" Opacity="0.65"/>
+            </Grid.Background>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="40"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="80"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="7*"/>
+            </Grid.RowDefinitions>
+
+            <Rectangle Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4"></Rectangle>
+            <Rectangle Grid.Column="2" Grid.Row="1" Grid.RowSpan="3" Fill="#FFCBCBCB"></Rectangle>
+
+            <Button Name="btnKreirajEtiketu" Grid.Column="3" Grid.Row="3" Margin="10,10,20,10" Foreground="Black" FontFamily="Microsoft YaHei Light" FontSize="20" Click="Dodaj_Etiketu" FontWeight="Bold" Cursor="Hand">
+                <Button.Background>
+                    <SolidColorBrush Color="White" Opacity="0.4"/>
+                </Button.Background> Dodati
+            </Button>
+
+            <Button Name="btnAzurirajEtiketu" Grid.Column="3" Grid.Row="3" Margin="10,10,20,10" Foreground="Black" FontFamily="Microsoft YaHei Light" FontSize="20" Click="Azuriraj_Etiketu" FontWeight="Bold" Cursor="Hand">
+                <Button.Background>
+                    <SolidColorBrush Color="White" Opacity="0.4"/>
+                </Button.Background> Azurirati
+            </Button>
+
+            <Button Name="btnObrisiEtiketu" Grid.Column="3" Grid.Row="1" Margin="10,10,20,10" Foreground="Black" FontFamily="Microsoft YaHei Light" FontSize="20" Click="Obrisi_Etiketu" FontWeight="Bold" Cursor="Hand">
+                <Button.Background>
+                    <SolidColorBrush Color="White" Opacity="0.4"/>
+                </Button.Background> Obrisati
+            </Button>
+
+            <Button Name="btnNextE" Grid.Column="3" Grid.Row="1" Margin="10,10,20,10" Foreground="Black" FontFamily="Microsoft YaHei Light" FontSize="20" Click="NextE" FontWeight="Bold" Cursor="Hand">
+                <Button.Background>
+                    <SolidColorBrush Color="White" Opacity="0.4"/>
+                </Button.Background> Dalje
+            </Button>
+
+            <Label Name="novaE" Grid.Column="0" Grid.Row="0" Foreground="#FFE58C67" FontFamily="Microsoft YaHei Light" FontSize="25" HorizontalAlignment="Center" VerticalAlignment="Center">Nova Etiketa</Label>
+            <Label Name="lIdE" Grid.Row="1" Grid.Column="0" Foreground="White" HorizontalAlignment="Right" VerticalAlignment="Center" FontFamily="Microsoft JhengHei Light" FontSize="18">Id:</Label>
+            <Label Name="lBoja" Grid.Row="2" Grid.Column="0" Foreground="White" HorizontalAlignment="Right" VerticalAlignment="Center" FontFamily="Microsoft JhengHei Light" FontSize="18">Boja:</Label>
+            <Label Name="lOpisE" Grid.Row="3" Grid.Column="0" Foreground="White" HorizontalAlignment="Right" VerticalAlignment="Top" FontFamily="Microsoft JhengHei Light" FontSize="18" Margin="0,10,0,0">Opis:</Label>
+
+            <TextBox Name="idEtiketa" Grid.Row="1" Grid.Column="1" Margin="10,10,20,10" Padding="10,0,0,0" VerticalContentAlignment="Center" FontFamily="Microsoft YaHei Light" FontSize="16" TextChanged="IdEtiketa_TextChanged">
+                <TextBox.Text>
+                    <Binding Path="E_Id" UpdateSourceTrigger="PropertyChanged">
+                        <Binding.ValidationRules>
+                            <val:EmptyValidationRule />
+                            <val:StringToInt />
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+                <Validation.ErrorTemplate>
+                    <ControlTemplate>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+
+                            <AdornedElementPlaceholder Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" x:Name="idEtiketa"/>
+                            <TextBox Grid.Column="1" Grid.Row="0" Text="{Binding [0].ErrorContent}"  VerticalContentAlignment="Center" FontFamily="Microsoft YaHei Light" FontSize="16" Padding="10,0,0,0" Foreground="Red"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Validation.ErrorTemplate>
+            </TextBox>
+            <xctk:ColorPicker Name="cbBoja" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" Margin="10,0,20,0" FontFamily="Microsoft YaHei Light" FontSize="16" BorderThickness="0" SelectedColor="{Binding Path=Boja}" Cursor="Hand"/>
+            <TextBox Name="opisEtiketa" Grid.Row="3" Grid.Column="1" Margin="10,10,20,10" Padding="10,10,0,0" FontFamily="Microsoft YaHei Light" FontSize="16"/>
+
+        </Grid>
+
+        <!-- DOBRODOSLI PANEL -->
+        <Grid Grid.Column="1" Name="DobrodosliPanel">
+            <Grid.Background>
+                <SolidColorBrush Color="Black" Opacity="0.65"/>
+            </Grid.Background>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="40"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="4*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="3*"/>
+            </Grid.RowDefinitions>
+
+            <Rectangle Grid.Column="2" Grid.Row="1" Grid.RowSpan="4" Fill="#FFCBCBCB"></Rectangle>
+            <TextBlock Name="korak1" Grid.RowSpan="3" Grid.Row="2" Grid.Column="1" Padding="0,0,10,0" Foreground="#FFFAFAFA" FontSize="24" FontFamily="Microsoft YaHei Light" TextWrapping="Wrap">
+                Dobrodosli,
+                Za pocetak, potrebno je dodati novi tip zivotinje kako bi se on pojavio kao opcija pri kreiranju nove zivotinje.
+                Kliknite na dugme "Novi Tip" u donjem levom uglu aplikacije.
+            </TextBlock>
+            <TextBlock Name="korak2" Grid.RowSpan="3" Grid.Row="2" Grid.Column="1" Padding="0,0,10,0" Foreground="#FFFAFAFA" FontSize="24" FontFamily="Microsoft YaHei Light" TextWrapping="Wrap">
+                Pored tipa, zivotinjama je moguce dodati i etikete. Etiketa predstavlja osobinu zivotinje koja je oznacena odredjenom bojom i 
+                opisom. Za dodavanje nove etikete kliknite dugme "Nova Etiketa" u donjem levom uglu aplikacije.
+            </TextBlock>
+            <TextBlock Name="korak3" Grid.RowSpan="3" Grid.Row="2" Grid.Column="1" Padding="0,0,10,0" Foreground="#FFFAFAFA" FontSize="24" FontFamily="Microsoft YaHei Light" TextWrapping="Wrap">
+                Uz dodate opcije za tip i etiketu, konacno mozemo napraviti novu zivotinju.
+                Kliknite na dugme "Nova Zivotinja" kako biste otvorili formu za unos nove zivotinje.
+            </TextBlock>
+            <TextBlock Name="korak4" Grid.RowSpan="3" Grid.Row="2" Grid.Column="1" Padding="0,0,10,0" Foreground="#FFFAFAFA" FontSize="24" FontFamily="Microsoft YaHei Light" TextWrapping="Wrap">
+                Uspesno ste kreirali novu zivotinju. Vise informacija o samoj aplikaciji mozete pronaci u sekciji "Pomoc".
+                
+                Mozete pokrenuti aplikaciju na dugme "Pokrenite"
+            </TextBlock>
+            <Label Name="dobLab1" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" Foreground="#FFE58C67" FontFamily="Microsoft YaHei Light" FontSize="27" HorizontalAlignment="Center" VerticalAlignment="Center">Korak 1 - dodavanje novog tipa</Label>
+            <Label Name="dobLab2" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" Foreground="#FFE58C67" FontFamily="Microsoft YaHei Light" FontSize="27" HorizontalAlignment="Center" VerticalAlignment="Center">Korak 2 - dodavanje nove etikete</Label>
+            <Label Name="dobLab3" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" Foreground="#FFE58C67" FontFamily="Microsoft YaHei Light" FontSize="27" HorizontalAlignment="Center" VerticalAlignment="Center">Korak 3 - dodavanje nove zivotinje</Label>
+            <Label Name="dobLab4" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" Foreground="#FFE58C67" FontFamily="Microsoft YaHei Light" FontSize="27" HorizontalAlignment="Center" VerticalAlignment="Center">Korak 4 - pokretanje aplikacije</Label>
+
+            <Button Name="btnPokreni" Grid.Column="1" Grid.Row="5" Margin="0,3" FontFamily="Microsoft YaHei UI Light" FontSize="22" FontWeight="Bold" Foreground="Black" BorderThickness="0,0,0,1" BorderBrush="#FFE58C67" Background="#FFE58C67" Click="Pokreni" Width="250" Cursor="Hand" Height="90" VerticalAlignment="Top" HorizontalAlignment="Stretch">Pokrenite</Button>
+            
+        </Grid>
+        
+        <!-- LISTA -->
+        <DockPanel Grid.Column="0">
+            <Grid DockPanel.Dock="Top" Height="90" Background="Black">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="5*"/>
+                    <ColumnDefinition Width="2*"/>
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="0" BorderThickness="0" Cursor="Hand" Click="Back" Width="50" Height="50" RenderTransformOrigin="0.5,0.504">
+                    <Button.Background>
+                        <ImageBrush ImageSource="/ProjektniZadatak;component/left-arrow.png"/>
+                    </Button.Background>
+                </Button>
+                <Label Name="nazivListe" Grid.Column="1" Foreground="#FFE58C67" FontSize="28" FontFamily="Microsoft YaHei Light" VerticalContentAlignment="Center" Padding="50,5,5,5" BorderThickness="1,0,0,0" BorderBrush="White">Lista Zivotinja:</Label>
+            </Grid>
+            <Grid DockPanel.Dock="Bottom">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="5*"/>
+                    <RowDefinition Height="2*"/>
+                </Grid.RowDefinitions>
+
+                <!-- Prikaz liste -->
+                <ListView Grid.Row="0" Name="zivotinje" BorderBrush="Black" FontFamily="Microsoft JhengHei Light" FontSize="16" SelectionChanged="Selekcija_Liste">
+                    <ListView.Background>
+                        <SolidColorBrush Color="Black" Opacity="0.9"/>
+                    </ListView.Background>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <WrapPanel>
+                                <Image Source="{Binding Path=Image}" Width="75" Height="75"/>
+                                <TextBlock Text="  " FontSize="36" Foreground="White" Padding="0,15,0,0"/>
+                                <TextBlock Text="{Binding Path=Ime}" FontSize="36" Foreground="White" Padding="0,15,0,0"/>
+                            </WrapPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+                <ListView Grid.Row="0" Name="etikete" BorderBrush="Black" FontFamily="Microsoft JhengHei Light" FontSize="16" SelectionChanged="Selekcija_Liste_Etikete">
+                    <ListView.Background>
+                        <SolidColorBrush Color="Black" Opacity="0.9"/>
+                    </ListView.Background>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <WrapPanel>
+                                <TextBlock Text="{Binding Path=Id}" FontSize="36" Padding="0,15,0,0" Foreground="White"/>
+                            </WrapPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+                <ListView Grid.Row="0" Name="tipovi" BorderBrush="Black" FontFamily="Microsoft JhengHei Light" FontSize="16" SelectionChanged="Selekcija_Liste_Tipovi">
+                    <ListView.Background>
+                        <SolidColorBrush Color="Black" Opacity="0.9"/>
+                    </ListView.Background>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <WrapPanel>
+                                <Image Source="{Binding Path=Image}" Width="75" Height="75"/>
+                                <TextBlock Text="  " FontSize="36" Foreground="White" Padding="0,15,0,0"/>
+                                <TextBlock Text="{Binding Path=Ime}" FontSize="36" Foreground="White" Padding="0,15,0,0"/>
+                            </WrapPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+                <!-- Prikaz dugmica (nova zivotinja, novi tip, nova etiketa) -->
+                <Grid Grid.Row="1">
+                    <Grid.Background>
+                        <SolidColorBrush Color="Black" Opacity="0.65"/>
+                    </Grid.Background>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <Button Name="btnZ" Grid.ColumnSpan="2" Grid.Row="0" Margin="10,4" FontFamily="Microsoft YaHei Light" FontSize="20" Click="AddButton_Click" Foreground="White" Background="Black" BorderThickness="0,1" MouseEnter="HoverZ" MouseLeave="HoverZLeave" Cursor="Hand">
+                        <Button.BorderBrush>
+                            <SolidColorBrush Color="White" Opacity="0.7"/>
+                        </Button.BorderBrush> Nova Zivotinja
+                    </Button>
+                    <Button ToolTipService.ShowDuration="12000" Name="btnT" Grid.Column="0" Grid.Row="1" Margin="10,4" FontFamily="Microsoft YaHei Light" FontSize="20" Foreground="White" BorderThickness="0,1" Click="Novi_Tip" FontWeight="Bold" MouseEnter="HoverT" MouseLeave="HoverTLeave" Cursor="Hand">
+                        <Button.ToolTip>
+                            <StackPanel>
+                                <TextBlock FontWeight="Bold" FontSize="14" Margin="0,0,0,5">Open file</TextBlock>
+                                <TextBlock>
+                        Search your computer or local network
+                        <LineBreak />
+                        for a file and open it for editing.
+                                </TextBlock>
+                                <Border BorderBrush="Silver" BorderThickness="0,1,0,0" Margin="0,8" />
+                                <WrapPanel>
+                                    <TextBlock FontStyle="Italic">Press F1 for more help</TextBlock>
+                                </WrapPanel>
+                            </StackPanel>
+                        </Button.ToolTip>
+                        <Button.BorderBrush>
+                            <SolidColorBrush Color="White" Opacity="0.7"/>
+                        </Button.BorderBrush>
+                        <Button.Background>
+                            <SolidColorBrush Color="Black"/>
+                        </Button.Background> Novi Tip
+                    </Button>
+                    <Button Name="btnE" Grid.Column="1" Grid.Row="1" Margin="10,4" FontFamily="Microsoft YaHei Light" FontSize="20" Foreground="White" BorderThickness="0,1" Click="Nova_Etiketa" MouseEnter="HoverE" MouseLeave="HoverELeave" Cursor="Hand">
+                        <Button.BorderBrush>
+                            <SolidColorBrush Color="White" Opacity="0.7"/>
+                        </Button.BorderBrush>
+                        <Button.Background>
+                            <SolidColorBrush Color="Black"/>
+                        </Button.Background> Nova Etiketa
+                    </Button>
+                </Grid>
+
+            </Grid>
+        </DockPanel>
+    </Grid>
+</Window>

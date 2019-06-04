@@ -245,6 +245,40 @@ namespace ProjektniZadatak.Model
             }
         }
 
+        private string _locationX;
+        public string locationX
+        {
+            get
+            {
+                return _locationX;
+            }
+            set
+            {
+                if (value != _locationX)
+                {
+                    _locationX = value;
+                    OnPropertyChanged("locationX");
+                }
+            }
+        }
+
+        private string _locationY;
+        public string locationY
+        {
+            get
+            {
+                return _locationY;
+            }
+            set
+            {
+                if (value != _locationY)
+                {
+                    _locationY = value;
+                    OnPropertyChanged("locationY");
+                }
+            }
+        }
+
     }
 
 }

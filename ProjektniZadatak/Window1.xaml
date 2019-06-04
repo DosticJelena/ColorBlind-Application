@@ -71,7 +71,7 @@
             </Button.Background>
             Zivotinjske vrste
         </Button>
-        <Button Name="btnHelp" Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2" Margin="0" BorderThickness="0" Foreground="White" FontSize="28" FontFamily="Microsoft YaHei UI Light" MouseEnter="HoverH" MouseLeave="HoverHLeave" Cursor="Hand">
+        <Button Name="btnHelp" Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2" Margin="0" BorderThickness="0" Foreground="White" FontSize="28" FontFamily="Microsoft YaHei UI Light" MouseEnter="HoverH" MouseLeave="HoverHLeave" Cursor="Hand" Click="BtnHelp_Click">
             <Button.Background>
                 <SolidColorBrush Color="Black" Opacity="0.75"/>
             </Button.Background>

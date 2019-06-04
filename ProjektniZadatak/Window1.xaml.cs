@@ -19,6 +19,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
+
 namespace ProjektniZadatak
 {
     /// <summary>
@@ -58,66 +59,35 @@ namespace ProjektniZadatak
         public Window1()
         {
             InitializeComponent();
+            
             Animals = new ObservableCollection<Animal>();
             Tipovi = new ObservableCollection<Tip>();
             Etikete = new ObservableCollection<Etiketa>();
+            
+        }
 
-            //Tipovi.Add(new Tip { Id = "1", Ime = "Ptice", Opis = "Pernate zivotinje", Image = new BitmapImage(new Uri("C:\\Users\\jelen\\Pictures\\Projekat\\pticaTip.png")) });
-            //Tipovi.Add(new Tip { Id = "2", Ime = "Kopnene", Opis = "Zive na kopnu", Image = new BitmapImage(new Uri("C:\\Users\\jelen\\Pictures\\Projekat\\slonTip.png")) });
-            //Tipovi.Add(new Tip { Id = "3", Ime = "Vodene", Opis = "Zive u vodi", Image = new BitmapImage(new Uri("C:\\Users\\jelen\\Pictures\\Projekat\\ribaTip.png")) });
+        public Window1(ObservableCollection<Animal> a, ObservableCollection<Etiketa> e, ObservableCollection<Tip> t)
+        {
+            InitializeComponent();
 
-            //Etikete.Add(new Etiketa { Id = 1, Opis = "Opis 1", Boja = Colors.DarkRed });
-            //Etikete.Add(new Etiketa { Id = 2, Opis = "Opis 2", Boja = Colors.RoyalBlue });
-            //Etikete.Add(new Etiketa { Id = 3, Opis = "Opis 3", Boja = Colors.Gold });
+            Animals = a;
+            Tipovi = t;
+            Etikete = e;
 
-
-            /*Animal prva = new Animal
-            {
-                Id = "1",
-                Ime = "Prva",
-                Opis = "Opis1",
-                StUgr = Animal.StatusUgrozenosti.KriticnoUgrozena,
-                StTur = Animal.TuristickiStatus.DelimicnoHabituirana,
-                Opasna = false,
-                NaseljeniRegion = true,
-                CrvenaLista = false,
-                GodisnjiPrihod = "123.43",
-                TipZiv = Tipovi[0],
-                Image = new BitmapImage(new Uri("https://images.unsplash.com/photo-1532226994725-7b63013bd1d7?ixlib=rb-1.2.1&auto=format&fit=crop&w=967&q=80")),
-                Datum = new DateTime(2018, 6, 7),
-                EtiketeZiv = new List<Etiketa>()
-            };
-            Animal druga = new Animal
-            {
-                Id = "2",
-                Ime = "Druga",
-                Opis = "Opis2",
-                StUgr = Animal.StatusUgrozenosti.Ranjiva,
-                StTur = Animal.TuristickiStatus.Habituirana,
-                Opasna = true,
-                NaseljeniRegion = true,
-                CrvenaLista = false,
-                GodisnjiPrihod = "2323.51",
-                TipZiv = Tipovi[2],
-                Image = new BitmapImage(new Uri("https://images.unsplash.com/photo-1550741442-4c6d93cc55d8?ixlib=rb-1.2.1&auto=format&fit=crop&w=682&q=80")),
-                Datum = new DateTime(2018, 6, 5),
-                EtiketeZiv = new List<Etiketa>()
-            };
-            */
-            //Animals.Add(prva);
-            //Animals.Add(druga);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Species species = new Species(Etikete,Tipovi,Animals);
+            Species species = new Species(Etikete,Tipovi,Animals,this);
             Species.brojac++;
+            ((Button)sender).Cursor = Cursors.Wait;
             species.ShowDialog();
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            Map map = new Map(Animals);
+            Map map = new Map(Animals,this);
+            ((Button)sender).Cursor = Cursors.Wait;
             map.ShowDialog();
         }
 
@@ -247,6 +217,18 @@ namespace ProjektniZadatak
             this.Visibility = Visibility.Hidden;
             Prozori.Start s = new Prozori.Start();
             s.ShowDialog();
+        }
+
+        public void updateCursors()
+        {
+            btnAS.Cursor = Cursors.Hand;
+            btnM.Cursor = Cursors.Hand;
+        }
+
+        private void BtnHelp_Click(object sender, RoutedEventArgs e)
+        {
+            //System.Windows.Forms.Control parent = (Control)this as System.Windows.Forms.Control;
+            //System.Windows.Forms.Help.ShowHelp(parent, "C:\\Users\\jelen\\Documents\\ProjektniZadatak-Help.hpz");
         }
     }
 

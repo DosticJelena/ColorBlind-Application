@@ -27,8 +27,9 @@
                 </Button.Background>
             </Button>
         </Grid>
+
         
-        <ListView Grid.Column="0" Grid.Row="1" Name="zivotinje" BorderBrush="Black" FontFamily="Microsoft JhengHei Light" FontSize="16">
+        <ListView Grid.Column="0" Grid.Row="1" Name="zivotinje" BorderBrush="Black" FontFamily="Microsoft JhengHei Light" FontSize="16" PreviewMouseLeftButtonDown="ListView_PreviewMouseLeftButtonDown" MouseMove="ListView_MouseMove">
             <ListView.Background>
                 <SolidColorBrush Color="Black" Opacity="0.9"/>
             </ListView.Background>
@@ -37,16 +38,29 @@
                     <WrapPanel>
                         <Image Source="{Binding Image}" Width="50" Height="50"/>
                         <TextBlock Text="  " FontSize="25" Foreground="White" Padding="0,10,0,0"/>
-                        <TextBlock Text="{Binding Ime}" FontSize="25" Foreground="White" Padding="0,10,0,0"/>
+                        <TextBlock Text="{Binding Ime}" FontSize="25" Foreground="White" Padding="0,10,0,0" Cursor="Hand"/>
                     </WrapPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        
-        <Rectangle Grid.Column="1" Grid.RowSpan="2">
-            <Rectangle.Fill>
+
+        <!--
+        <ListView Grid.Column="0" Grid.Row="1" Name="zivotinje" ItemsSource="{Binding Source=animalsMap}" MouseMove="ListView_MouseMove" PreviewMouseLeftButtonDown="ListView_PreviewMouseLeftButtonDown">
+            <ListView.Background>
+                <SolidColorBrush Color="Black" Opacity="0.9"/>
+            </ListView.Background>            
+            <ListView.View>
+                            <GridView>
+                                <GridViewColumn DisplayMemberBinding="{Binding Ime}" Header="Ime"/>
+                            </GridView>
+                        </ListView.View>
+        </ListView>
+         -->
+
+        <Canvas Grid.Column="1" Name="canvasMap" Grid.RowSpan="2"  AllowDrop="True" DragEnter="Canvas_DragEnter" Drop="Canvas_Drop" MouseMove="Canvas_MouseMove" MouseLeftButtonDown="Canvas_MouseLeftButtonDown" MouseLeftButtonUp="Canvas_MouseLeftButtonUp">
+            <Canvas.Background>
                 <ImageBrush ImageSource="map.jpg"/>
-            </Rectangle.Fill>
-        </Rectangle>
+            </Canvas.Background>
+        </Canvas>
     </Grid>
 </Window>

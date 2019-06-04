@@ -57,19 +57,19 @@
                     <RowDefinition Height="2*"/>
                 </Grid.RowDefinitions>
 
-                <Label Grid.Column="1" Grid.Row="1" Foreground="#FFFCFCFC" HorizontalAlignment="Right" FontFamily="Microsoft YaHei Light" FontSize="18" VerticalAlignment="Center" Margin="0,0,10,0">Id:</Label>
-                <Label Grid.Column="1" Grid.Row="2" Foreground="#FFFCFCFC" HorizontalAlignment="Right" FontFamily="Microsoft YaHei Light" FontSize="18" VerticalAlignment="Center" Margin="0,0,10,0">Ime:</Label>
-                <Label Grid.Column="1" Grid.Row="3" Foreground="#FFFCFCFC" HorizontalAlignment="Right" FontFamily="Microsoft YaHei Light" FontSize="18" VerticalAlignment="Center" Margin="0,0,10,0">Opis:</Label>
-                <Label Grid.Column="1" Grid.Row="4" Foreground="#FFFCFCFC" HorizontalAlignment="Right" FontFamily="Microsoft YaHei Light" FontSize="18" VerticalAlignment="Center" Margin="0,0,10,0">Status ugrozenosti:</Label>
-                <Label Grid.Column="1" Grid.Row="5" Foreground="#FFFCFCFC" HorizontalAlignment="Right" FontFamily="Microsoft YaHei Light" FontSize="18" VerticalAlignment="Center" Margin="0,0,10,0">Turisticki status:</Label>
-                <Label Grid.Column="1" Grid.Row="9" Foreground="#FFFCFCFC" HorizontalAlignment="Right" FontFamily="Microsoft YaHei Light" FontSize="18" VerticalAlignment="Center" Margin="0,0,10,0">Tip:</Label>
+                <Label Name="lId" Grid.Column="1" Grid.Row="1" Foreground="#FFFCFCFC" HorizontalAlignment="Right" FontFamily="Microsoft YaHei Light" FontSize="18" VerticalAlignment="Center" Margin="0,0,10,0">Id:</Label>
+                <Label Name="lIme" Grid.Column="1" Grid.Row="2" Foreground="#FFFCFCFC" HorizontalAlignment="Right" FontFamily="Microsoft YaHei Light" FontSize="18" VerticalAlignment="Center" Margin="0,0,10,0">Ime:</Label>
+                <Label Name="lOpis" Grid.Column="1" Grid.Row="3" Foreground="#FFFCFCFC" HorizontalAlignment="Right" FontFamily="Microsoft YaHei Light" FontSize="18" VerticalAlignment="Center" Margin="0,0,10,0">Opis:</Label>
+                <Label Name="lStUgr" Grid.Column="1" Grid.Row="4" Foreground="#FFFCFCFC" HorizontalAlignment="Right" FontFamily="Microsoft YaHei Light" FontSize="18" VerticalAlignment="Center" Margin="0,0,10,0">Status ugrozenosti:</Label>
+                <Label Name="lStTur" Grid.Column="1" Grid.Row="5" Foreground="#FFFCFCFC" HorizontalAlignment="Right" FontFamily="Microsoft YaHei Light" FontSize="18" VerticalAlignment="Center" Margin="0,0,10,0">Turisticki status:</Label>
+                <Label Name="lTip" Grid.Column="1" Grid.Row="9" Foreground="#FFFCFCFC" HorizontalAlignment="Right" FontFamily="Microsoft YaHei Light" FontSize="18" VerticalAlignment="Center" Margin="0,0,10,0">Tip:</Label>
                 <Label Grid.Column="1" Grid.Row="6" Foreground="#FFFCFCFC" HorizontalAlignment="Right" FontFamily="Microsoft YaHei Light" FontSize="18" VerticalAlignment="Center" Margin="0,0,10,0">Slika:</Label>
                 <Label Grid.Column="3" Grid.Row="9" Foreground="#FFFCFCFC" HorizontalAlignment="Right" FontFamily="Microsoft YaHei Light" FontSize="18" VerticalAlignment="Center" Margin="0,0,10,0">Etikete:</Label>
                 <Label Grid.Column="3" Grid.Row="6" Foreground="#FFFCFCFC" HorizontalAlignment="Right" FontFamily="Microsoft YaHei Light" FontSize="18" VerticalAlignment="Center" Margin="0,0,10,0">Opasna:</Label>
                 <Label Grid.Column="3" Grid.Row="7" Foreground="#FFFCFCFC" HorizontalAlignment="Right" FontFamily="Microsoft YaHei Light" FontSize="18" VerticalAlignment="Center" Margin="0,0,10,0">Naseljeni region:</Label>
                 <Label Grid.Column="3" Grid.Row="8" Foreground="#FFFCFCFC" HorizontalAlignment="Right" FontFamily="Microsoft YaHei Light" FontSize="18" VerticalAlignment="Center" Margin="0,0,10,0">Crvena lista:</Label>
                 <Label Name="lDatum" Grid.Column="3" Grid.Row="5" Foreground="#FFFCFCFC" HorizontalAlignment="Right" FontFamily="Microsoft YaHei Light" FontSize="18" VerticalAlignment="Center" Margin="0,0,10,0">Datum:</Label>
-                <Label Grid.Column="3" Grid.Row="4" Foreground="#FFFCFCFC" HorizontalAlignment="Right" FontFamily="Microsoft YaHei Light" FontSize="18" VerticalAlignment="Center" Margin="0,0,10,0">Godisnji prihod:</Label>
+                <Label Name ="lGodPrihod" Grid.Column="3" Grid.Row="4" Foreground="#FFFCFCFC" HorizontalAlignment="Right" FontFamily="Microsoft YaHei Light" FontSize="18" VerticalAlignment="Center" Margin="0,0,10,0">Godisnji prihod:</Label>
 
                 <Button Name="btnDodajSliku" Grid.Column="1" Grid.Row="8" Foreground="#FF020202" HorizontalAlignment="Right" FontFamily="Microsoft YaHei Light" FontSize="14" VerticalAlignment="Center" Padding="5" Click="Add_Image" Margin="0,0,5,0" Cursor="Hand">Uvoz slike</Button>
                 <Button Name="btnDodajUListu" Grid.Column="3" Grid.Row="11" Foreground="Black" FontFamily="Microsoft YaHei Light" FontSize="20" Margin="9" Padding="5" Click="Dodavanje_Zivotinje" Width="150" HorizontalAlignment="Left" FontWeight="Bold" Cursor="Hand">
@@ -421,11 +421,11 @@
             </Button>
 
             <Label Name="novaE" Grid.Column="0" Grid.Row="0" Foreground="#FFE58C67" FontFamily="Microsoft YaHei Light" FontSize="25" HorizontalAlignment="Center" VerticalAlignment="Center">Nova Etiketa</Label>
-            <Label Grid.Row="1" Grid.Column="0" Foreground="White" HorizontalAlignment="Right" VerticalAlignment="Center" FontFamily="Microsoft JhengHei Light" FontSize="18">Id:</Label>
-            <Label Grid.Row="2" Grid.Column="0" Foreground="White" HorizontalAlignment="Right" VerticalAlignment="Center" FontFamily="Microsoft JhengHei Light" FontSize="18">Boja:</Label>
-            <Label Grid.Row="3" Grid.Column="0" Foreground="White" HorizontalAlignment="Right" VerticalAlignment="Top" FontFamily="Microsoft JhengHei Light" FontSize="18" Margin="0,10,0,0">Opis:</Label>
+            <Label Name="lIdE" Grid.Row="1" Grid.Column="0" Foreground="White" HorizontalAlignment="Right" VerticalAlignment="Center" FontFamily="Microsoft JhengHei Light" FontSize="18">Id:</Label>
+            <Label Name="lBoja" Grid.Row="2" Grid.Column="0" Foreground="White" HorizontalAlignment="Right" VerticalAlignment="Center" FontFamily="Microsoft JhengHei Light" FontSize="18">Boja:</Label>
+            <Label Name="lOpisE" Grid.Row="3" Grid.Column="0" Foreground="White" HorizontalAlignment="Right" VerticalAlignment="Top" FontFamily="Microsoft JhengHei Light" FontSize="18" Margin="0,10,0,0">Opis:</Label>
 
-            <TextBox Name="idEtiketa" Grid.Row="1" Grid.Column="1" Margin="10,10,20,10" Padding="10,0,0,0" VerticalContentAlignment="Center" FontFamily="Microsoft YaHei Light" FontSize="16">
+            <TextBox Name="idEtiketa" Grid.Row="1" Grid.Column="1" Margin="10,10,20,10" Padding="10,0,0,0" VerticalContentAlignment="Center" FontFamily="Microsoft YaHei Light" FontSize="16" TextChanged="IdEtiketa_TextChanged">
                 <TextBox.Text>
                     <Binding Path="E_Id" UpdateSourceTrigger="PropertyChanged">
                         <Binding.ValidationRules>
