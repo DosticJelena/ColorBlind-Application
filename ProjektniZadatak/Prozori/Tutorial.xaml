@@ -60,8 +60,8 @@
                 <Label Name="lId" Grid.Column="1" Grid.Row="1" Foreground="#FFFCFCFC" HorizontalAlignment="Right" FontFamily="Microsoft YaHei Light" FontSize="18" VerticalAlignment="Center" Margin="0,0,10,0">Id:</Label>
                 <Label Name="lIme" Grid.Column="1" Grid.Row="2" Foreground="#FFFCFCFC" HorizontalAlignment="Right" FontFamily="Microsoft YaHei Light" FontSize="18" VerticalAlignment="Center" Margin="0,0,10,0">Ime:</Label>
                 <Label Name="lOpis" Grid.Column="1" Grid.Row="3" Foreground="#FFFCFCFC" HorizontalAlignment="Right" FontFamily="Microsoft YaHei Light" FontSize="18" VerticalAlignment="Center" Margin="0,0,10,0">Opis:</Label>
-                <Label Name="lStUgr" Grid.Column="1" Grid.Row="4" Foreground="#FFFCFCFC" HorizontalAlignment="Right" FontFamily="Microsoft YaHei Light" FontSize="18" VerticalAlignment="Center" Margin="0,0,10,0">Status ugrozenosti:</Label>
-                <Label Name="lStTur" Grid.Column="1" Grid.Row="5" Foreground="#FFFCFCFC" HorizontalAlignment="Right" FontFamily="Microsoft YaHei Light" FontSize="18" VerticalAlignment="Center" Margin="0,0,10,0">Turisticki status:</Label>
+                <Label Name="lStUgr" Grid.Column="1" Grid.Row="4" Foreground="#FFFCFCFC" HorizontalAlignment="Right" FontFamily="Microsoft YaHei Light" FontSize="18" VerticalAlignment="Center" Margin="0,0,10,0">Status ugroženosti:</Label>
+                <Label Name="lStTur" Grid.Column="1" Grid.Row="5" Foreground="#FFFCFCFC" HorizontalAlignment="Right" FontFamily="Microsoft YaHei Light" FontSize="18" VerticalAlignment="Center" Margin="0,0,10,0">Turistički status:</Label>
                 <Label Name="lTip" Grid.Column="1" Grid.Row="9" Foreground="#FFFCFCFC" HorizontalAlignment="Right" FontFamily="Microsoft YaHei Light" FontSize="18" VerticalAlignment="Center" Margin="0,0,10,0">Tip:</Label>
                 <Label Grid.Column="1" Grid.Row="6" Foreground="#FFFCFCFC" HorizontalAlignment="Right" FontFamily="Microsoft YaHei Light" FontSize="18" VerticalAlignment="Center" Margin="0,0,10,0" Name="lSlika">Slika:</Label>
                 <Label Grid.Column="3" Grid.Row="9" Foreground="#FFFCFCFC" HorizontalAlignment="Right" FontFamily="Microsoft YaHei Light" FontSize="18" VerticalAlignment="Center" Margin="0,0,10,0" Name="lEtikete">Etikete:</Label>
@@ -69,7 +69,7 @@
                 <Label Grid.Column="3" Grid.Row="7" Foreground="#FFFCFCFC" HorizontalAlignment="Right" FontFamily="Microsoft YaHei Light" FontSize="18" VerticalAlignment="Center" Margin="0,0,10,0" Name="lNasReg">Naseljeni region:</Label>
                 <Label Grid.Column="3" Grid.Row="8" Foreground="#FFFCFCFC" HorizontalAlignment="Right" FontFamily="Microsoft YaHei Light" FontSize="18" VerticalAlignment="Center" Margin="0,0,10,0" Name="lCrvenaLista">Crvena lista:</Label>
                 <Label Name="lDatum" Grid.Column="3" Grid.Row="5" Foreground="#FFFCFCFC" HorizontalAlignment="Right" FontFamily="Microsoft YaHei Light" FontSize="18" VerticalAlignment="Center" Margin="0,0,10,0">Datum:</Label>
-                <Label Name ="lGodPrihod" Grid.Column="3" Grid.Row="4" Foreground="#FFFCFCFC" HorizontalAlignment="Right" FontFamily="Microsoft YaHei Light" FontSize="18" VerticalAlignment="Center" Margin="0,0,10,0">Godisnji prihod:</Label>
+                <Label Name ="lGodPrihod" Grid.Column="3" Grid.Row="4" Foreground="#FFFCFCFC" HorizontalAlignment="Right" FontFamily="Microsoft YaHei Light" FontSize="18" VerticalAlignment="Center" Margin="0,0,10,0">Godišnji prihod:</Label>
 
                 <Button Name="btnDodajSliku" Grid.Column="1" Grid.Row="8" Foreground="#FF020202" HorizontalAlignment="Right" FontFamily="Microsoft YaHei Light" FontSize="14" VerticalAlignment="Center" Padding="5" Click="Add_Image" Margin="0,0,5,0" Cursor="Hand">Uvoz slike</Button>
                 <Button Name="btnDodajUListu" Grid.Column="3" Grid.Row="11" Foreground="Black" FontFamily="Microsoft YaHei Light" FontSize="20" Margin="9" Padding="5" Click="Dodavanje_Zivotinje" Width="150" HorizontalAlignment="Left" FontWeight="Bold" Cursor="Hand">
@@ -80,7 +80,7 @@
                 <Button Name="btnAzurirajListu" Grid.Column="3" Grid.Row="11" Foreground="Black" FontFamily="Microsoft YaHei Light" FontSize="20" Margin="9" Padding="5" Click="Azuriranje_Zivotinje" Width="150" HorizontalAlignment="Left" FontWeight="Bold" Cursor="Hand">
                     <Button.Background>
                         <SolidColorBrush Color="White" Opacity="0.4"/>
-                    </Button.Background> Azurirati
+                    </Button.Background> Ažurirati
                 </Button>
                 <Button Name="btnObrisi" Grid.Column="2" Grid.Row="11" Foreground="Black" FontFamily="Microsoft YaHei Light" FontSize="20" Margin="9" Padding="5" Click="Brisanje_Zivotinje" HorizontalAlignment="Right" Width="150" FontWeight="Bold" Cursor="Hand">
                     <Button.Background>
@@ -289,7 +289,7 @@
             <Button Name="btnAzurirajTip" Grid.Column="3" Grid.Row="4" Margin="10,10,20,10" Foreground="Black" FontFamily="Microsoft YaHei Light" FontSize="20" Click="Azuriraj_Tip" FontWeight="Bold" Cursor="Hand">
                 <Button.Background>
                     <SolidColorBrush Color="White" Opacity="0.4"/>
-                </Button.Background> Azurirati
+                </Button.Background> Ažurirati
             </Button>
 
             <Button Name="btnObrisiTip" Grid.Column="3" Grid.Row="1" Margin="10,10,20,10" Foreground="Black" FontFamily="Microsoft YaHei Light" FontSize="20" Click="Obrisi_Tip" FontWeight="Bold" Cursor="Hand">
@@ -315,7 +315,7 @@
                 </Button.Background> Dalje
             </Button>
 
-            <TextBlock Name="upozorenje" Grid.RowSpan="3" Grid.Row="2" Grid.Column="1" Foreground="#FFFAFAFA" FontSize="20" FontFamily="Microsoft YaHei Light" TextWrapping="Wrap">Upozorenje! Sve zivotinje koje pripadaju ovom tipu bice obrisane. Da li sigurno zelite da obrisete ovaj tip?</TextBlock>
+            <TextBlock Name="upozorenje" Grid.RowSpan="3" Grid.Row="2" Grid.Column="1" Foreground="#FFFAFAFA" FontSize="20" FontFamily="Microsoft YaHei Light" TextWrapping="Wrap">Upozorenje! Sve životinje koje pripadaju ovom tipu biće obrisane. Da li sigurno želite da obrišete ovaj tip?</TextBlock>
 
             <Label Name="noviT" Grid.Column="0" Grid.Row="0" Foreground="#FFE58C67" FontFamily="Microsoft YaHei Light" FontSize="25" HorizontalAlignment="Center" VerticalAlignment="Center">Novi Tip</Label>
             <Label Name="lab1" Grid.Row="1" Grid.Column="0" Foreground="White" HorizontalAlignment="Right" VerticalAlignment="Center" FontFamily="Microsoft JhengHei Light" FontSize="18">Id:</Label>
@@ -421,7 +421,7 @@
             <Button Name="btnAzurirajEtiketu" Grid.Column="3" Grid.Row="3" Margin="10,10,20,10" Foreground="Black" FontFamily="Microsoft YaHei Light" FontSize="20" Click="Azuriraj_Etiketu" FontWeight="Bold" Cursor="Hand">
                 <Button.Background>
                     <SolidColorBrush Color="White" Opacity="0.4"/>
-                </Button.Background> Azurirati
+                </Button.Background> Ažurirati
             </Button>
 
             <Button Name="btnObrisiEtiketu" Grid.Column="3" Grid.Row="1" Margin="10,10,20,10" Foreground="Black" FontFamily="Microsoft YaHei Light" FontSize="20" Click="Obrisi_Etiketu" FontWeight="Bold" Cursor="Hand">
@@ -497,26 +497,26 @@
 
             <Rectangle Grid.Column="2" Grid.Row="1" Grid.RowSpan="4" Fill="#FFCBCBCB"></Rectangle>
             <TextBlock Name="korak1" Grid.RowSpan="3" Grid.Row="2" Grid.Column="1" Padding="0,0,10,0" Foreground="#FFFAFAFA" FontSize="24" FontFamily="Microsoft YaHei Light" TextWrapping="Wrap">
-                Dobrodosli,
-                Za pocetak, potrebno je dodati novi tip zivotinje kako bi se on pojavio kao opcija pri kreiranju nove zivotinje.
+                Dobrodošli,
+                Za početak, potrebno je dodati novi tip životinje kako bi se on pojavio kao opcija pri kreiranju nove životinje.
                 Kliknite na dugme "Novi Tip" u donjem levom uglu aplikacije.
             </TextBlock>
             <TextBlock Name="korak2" Grid.RowSpan="3" Grid.Row="2" Grid.Column="1" Padding="0,0,10,0" Foreground="#FFFAFAFA" FontSize="24" FontFamily="Microsoft YaHei Light" TextWrapping="Wrap">
-                Pored tipa, zivotinjama je moguce dodati i etikete. Etiketa predstavlja osobinu zivotinje koja je oznacena odredjenom bojom i 
+                Pored tipa, životinjama je moguće dodati i etikete. Etiketa predstavlja osobinu životinje koja je označena određenom bojom i 
                 opisom. Za dodavanje nove etikete kliknite dugme "Nova Etiketa" u donjem levom uglu aplikacije.
             </TextBlock>
             <TextBlock Name="korak3" Grid.RowSpan="3" Grid.Row="2" Grid.Column="1" Padding="0,0,10,0" Foreground="#FFFAFAFA" FontSize="24" FontFamily="Microsoft YaHei Light" TextWrapping="Wrap">
-                Uz dodate opcije za tip i etiketu, konacno mozemo napraviti novu zivotinju.
-                Kliknite na dugme "Nova Zivotinja" kako biste otvorili formu za unos nove zivotinje.
+                Uz dodate opcije za tip i etiketu, konačno možete napraviti novu životinju.
+                Kliknite na dugme "Nova Životinja" kako biste otvorili formu za unos nove životinje.
             </TextBlock>
             <TextBlock Name="korak4" Grid.RowSpan="3" Grid.Row="2" Grid.Column="1" Padding="0,0,10,0" Foreground="#FFFAFAFA" FontSize="24" FontFamily="Microsoft YaHei Light" TextWrapping="Wrap">
-                Uspesno ste kreirali novu zivotinju. Vise informacija o samoj aplikaciji mozete pronaci u sekciji "Pomoc".
+                Uspešno ste kreirali novu životinju. Više informacija o samoj aplikaciji možete pronaći u sekciji "Pomoć".
                 
-                Mozete pokrenuti aplikaciju na dugme "Pokrenite"
+                Sada možete pokrenuti aplikaciju na dugme "Pokrenite".
             </TextBlock>
             <Label Name="dobLab1" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" Foreground="#FFE58C67" FontFamily="Microsoft YaHei Light" FontSize="27" HorizontalAlignment="Center" VerticalAlignment="Center">Korak 1 - dodavanje novog tipa</Label>
             <Label Name="dobLab2" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" Foreground="#FFE58C67" FontFamily="Microsoft YaHei Light" FontSize="27" HorizontalAlignment="Center" VerticalAlignment="Center">Korak 2 - dodavanje nove etikete</Label>
-            <Label Name="dobLab3" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" Foreground="#FFE58C67" FontFamily="Microsoft YaHei Light" FontSize="27" HorizontalAlignment="Center" VerticalAlignment="Center">Korak 3 - dodavanje nove zivotinje</Label>
+            <Label Name="dobLab3" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" Foreground="#FFE58C67" FontFamily="Microsoft YaHei Light" FontSize="27" HorizontalAlignment="Center" VerticalAlignment="Center">Korak 3 - dodavanje nove životinje</Label>
             <Label Name="dobLab4" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" Foreground="#FFE58C67" FontFamily="Microsoft YaHei Light" FontSize="27" HorizontalAlignment="Center" VerticalAlignment="Center">Korak 4 - pokretanje aplikacije</Label>
 
             <Button Name="btnPokreni" Grid.Column="1" Grid.Row="5" Margin="0,3" FontFamily="Microsoft YaHei UI Light" FontSize="22" FontWeight="Bold" Foreground="Black" BorderThickness="0,0,0,1" BorderBrush="#FFE58C67" Background="#FFE58C67" Click="Pokreni" Width="250" Cursor="Hand" Height="90" VerticalAlignment="Top" HorizontalAlignment="Stretch">Pokrenite</Button>
@@ -604,7 +604,7 @@
                     <Button Name="btnZ" Grid.ColumnSpan="2" Grid.Row="0" Margin="10,4" FontFamily="Microsoft YaHei Light" FontSize="20" Click="AddButton_Click" Foreground="White" Background="Black" BorderThickness="0,1" MouseEnter="HoverZ" MouseLeave="HoverZLeave" Cursor="Hand">
                         <Button.BorderBrush>
                             <SolidColorBrush Color="White" Opacity="0.7"/>
-                        </Button.BorderBrush> Nova Zivotinja
+                        </Button.BorderBrush> Nova Životinja
                     </Button>
                     <Button ToolTipService.ShowDuration="12000" Name="btnT" Grid.Column="0" Grid.Row="1" Margin="10,4" FontFamily="Microsoft YaHei Light" FontSize="20" Foreground="White" BorderThickness="0,1" Click="Novi_Tip" FontWeight="Bold" MouseEnter="HoverT" MouseLeave="HoverTLeave" Cursor="Hand">
                         <Button.ToolTip>

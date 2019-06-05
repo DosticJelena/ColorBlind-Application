@@ -469,7 +469,7 @@
                         <ImageBrush ImageSource="/ProjektniZadatak;component/left-arrow.png"/>
                     </Button.Background>
                 </Button>
-                <Label Name="nazivListe" Grid.Column="1" Foreground="#FFE58C67" FontSize="28" FontFamily="Microsoft YaHei Light" VerticalContentAlignment="Center" Padding="50,5,5,5" BorderThickness="1,0,0,0" BorderBrush="White">Lista Zivotinja:</Label>
+                <Label Name="nazivListe" Grid.Column="1" Foreground="#FFE58C67" FontSize="28" FontFamily="Microsoft YaHei Light" VerticalContentAlignment="Center" Padding="50,5,5,5" BorderThickness="1,0,0,0" BorderBrush="White">Lista Životinja:</Label>
             </Grid>
             <Grid DockPanel.Dock="Bottom">
                 <Grid.RowDefinitions>

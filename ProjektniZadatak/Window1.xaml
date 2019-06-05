@@ -32,12 +32,12 @@
             </Grid.RowDefinitions>
 
 
-            <Button Grid.Row="0" Width="150" Height="120" HorizontalContentAlignment="Center" HorizontalAlignment="Center" BorderThickness="0" Cursor="Hand" Content="Ucitaj" FontFamily="Microsoft YaHei UI Light" FontSize="24" Click="Load" VerticalAlignment="Center">
+            <Button Grid.Row="0" Width="150" Height="120" HorizontalContentAlignment="Center" HorizontalAlignment="Center" BorderThickness="0" Cursor="Hand" Content="Učitaj" FontFamily="Microsoft YaHei UI Light" FontSize="24" Click="Load" VerticalAlignment="Center">
                 <Button.Background>
                     <SolidColorBrush Color="White" Opacity="0.8"/>
                 </Button.Background>
             </Button>
-            <Button Grid.Row="1" Width="150" Height="120" HorizontalContentAlignment="Center" HorizontalAlignment="Center" BorderThickness="0" Cursor="Hand" Content="Sacuvaj" FontFamily="Microsoft YaHei UI Light" FontSize="24" Click="Save" VerticalAlignment="Center">
+            <Button Grid.Row="1" Width="150" Height="120" HorizontalContentAlignment="Center" HorizontalAlignment="Center" BorderThickness="0" Cursor="Hand" Content="Sačuvaj" FontFamily="Microsoft YaHei UI Light" FontSize="24" Click="Save" VerticalAlignment="Center">
                 <Button.Background>
                     <SolidColorBrush Color="White" Opacity="0.8"/>
                 </Button.Background>
@@ -69,13 +69,13 @@
             <Button.Background>
                 <SolidColorBrush Color="Black" Opacity="0.75"/>
             </Button.Background>
-            Zivotinjske vrste
+            Životinjske vrste
         </Button>
         <Button Name="btnHelp" Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2" Margin="0" BorderThickness="0" Foreground="White" FontSize="28" FontFamily="Microsoft YaHei UI Light" MouseEnter="HoverH" MouseLeave="HoverHLeave" Cursor="Hand" Click="BtnHelp_Click">
             <Button.Background>
                 <SolidColorBrush Color="Black" Opacity="0.75"/>
             </Button.Background>
-            Pomoc?
+            Pomoć?
         </Button>
     </Grid>
 </Window>
