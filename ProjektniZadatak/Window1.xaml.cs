@@ -64,6 +64,7 @@ namespace ProjektniZadatak
             Tipovi = new ObservableCollection<Tip>();
             Etikete = new ObservableCollection<Etiketa>();
             
+           
         }
 
         public Window1(ObservableCollection<Animal> a, ObservableCollection<Etiketa> e, ObservableCollection<Tip> t)
@@ -91,12 +92,12 @@ namespace ProjektniZadatak
             map.ShowDialog();
         }
 
-        protected override void OnClosed(EventArgs e)
+        /*protected override void OnClosed(EventArgs e)
         {
             base.OnClosed(e);
 
             Application.Current.Shutdown();
-        }
+        }*/
  
         private void HoverT(object sender, MouseEventArgs e)
         {
@@ -227,8 +228,7 @@ namespace ProjektniZadatak
 
         private void BtnHelp_Click(object sender, RoutedEventArgs e)
         {
-            //System.Windows.Forms.Control parent = (Control)this as System.Windows.Forms.Control;
-            //System.Windows.Forms.Help.ShowHelp(parent, "C:\\Users\\jelen\\Documents\\ProjektniZadatak-Help.hpz");
+            System.Diagnostics.Process.Start(@"C:\Users\jelen\Documents\TmpHtml\ProjektniZadatak-Help.chm");
         }
     }
 

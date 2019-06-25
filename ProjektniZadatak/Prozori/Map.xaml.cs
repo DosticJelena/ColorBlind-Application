@@ -21,12 +21,15 @@ namespace ProjektniZadatak
     /// </summary>
     public partial class Map : Window
     {
+
         public Dictionary<Animal, BitmapImage> animalImageMap = new Dictionary<Animal, BitmapImage>();
         public Dictionary<Tip, BitmapImage> tipImageMap = new Dictionary<Tip, BitmapImage>();
-        private Image draggedImage;
+        private Dictionary<int, Point> images = new Dictionary<int, Point>();
+        private Image draggedImage = null;
         private Animal tempAnimal;
         private Point startPoint = new Point();
         private Point mousePosition;
+        private int brojacZivotinja = 0;
         private ObservableCollection<Animal> animalsMap = new ObservableCollection<Animal>();
         private ObservableCollection<Animal> animalsMap2 = new ObservableCollection<Animal>();
         private Window1 win1;
@@ -35,7 +38,9 @@ namespace ProjektniZadatak
         {
             InitializeComponent();
             this.animalsMap = a;
+            //this.animalsMap2 = a;
             zivotinje.ItemsSource = a;
+            this.loadMap();
             this.win1 = w;
         }
 
@@ -59,10 +64,10 @@ namespace ProjektniZadatak
                 if (!String.Equals(a.locationX, "-") && !String.Equals(a.locationY, "-"))
                 {
                     Image i = new Image();
-                    i.Source = animalImageMap[a];
+                    i.Source = a.Image;
                     i.Width = 64;
                     i.Height = 64;
-                    i.Stretch = Stretch.None;
+                    i.Stretch = Stretch.Uniform;
                     canvasMap.Children.Add(i);
                     Canvas.SetLeft(i, Convert.ToDouble(a.locationX) - 32);
                     Canvas.SetTop(i, Convert.ToDouble(a.locationY) - 32);
@@ -133,13 +138,23 @@ namespace ProjektniZadatak
         {
             Point p = e.GetPosition(canvasMap);
 
+            bool zauzeto = false;
+            foreach (Animal a in animalsMap)
+            {
+                if (a.locationX == p.X.ToString() && a.locationY == p.Y.ToString())
+                {
+                    zauzeto = true;
+                    break;
+                }
+            }
+
             // && p.X < canvasMap.Width && p.Y < canvasMap.Height
-            if (e.Data.GetDataPresent("myFormat"))
+            if (e.Data.GetDataPresent("myFormat") && p.X > -1 && p.Y > -1)
             {
                 Animal animal = e.Data.GetData("myFormat") as Animal;
-
-                //if (String.Equals(animal.locationX, "-") && String.Equals(animal.locationY, "-"))
-                //{
+                
+                if (String.Equals(animal.locationX, "-") && String.Equals(animal.locationY, "-") && zauzeto == false)
+                {
                     Image i = new Image();
                     i.Source = animal.Image;
                     i.Width = 64;
@@ -151,7 +166,9 @@ namespace ProjektniZadatak
                     Console.WriteLine(animal.Ime);
                     animal.locationX = p.X.ToString();
                     animal.locationY = p.Y.ToString();
-                //}
+                }
+
+                //images.Add(int.Parse(animal.Id), new Point(double.Parse(animal.locationX), double.Parse(animal.locationY)));
                 
             }
 
@@ -187,15 +204,28 @@ namespace ProjektniZadatak
             {
                 if (mousePosition.X < 50)
                 {
-                    return;
+                    foreach (Animal a in animalsMap)
+                    {
+                        if (a.Image == draggedImage.Source)
+                        {
+
+                            //Canvas.SetLeft(draggedImage, images[int.Parse(tempAnimal.Id)].X);
+                            //Canvas.SetTop(draggedImage, images[int.Parse(tempAnimal.Id)].Y);
+                            //images[int.Parse(tempAnimal.Id)] = new Point(double.Parse(tempAnimal.locationX), double.Parse(tempAnimal.locationY));
+                            
+                        }
+
+                        return;
+                    }
                 }
 
                 canvasMap.ReleaseMouseCapture();
                 Panel.SetZIndex(draggedImage, 0);
                 draggedImage = null;
+                
             }
         }
-
+        
         private void Canvas_MouseMove(object sender, MouseEventArgs e)
         {
             if (draggedImage != null)
@@ -214,6 +244,10 @@ namespace ProjektniZadatak
                 Canvas.SetLeft(draggedImage, Canvas.GetLeft(draggedImage) + offset.X);
                 Canvas.SetTop(draggedImage, Canvas.GetTop(draggedImage) + offset.Y);
 
+                //images.Keys.Where(x => x == int.Parse(tempAnimal.Id));
+                
+                //images[int.Parse(tempAnimal.Id)] = new Point(double.Parse(tempAnimal.locationX), double.Parse(tempAnimal.locationY));
+                
                 tempAnimal.locationX = (Canvas.GetLeft(draggedImage) + 32).ToString();
                 tempAnimal.locationY = (Canvas.GetTop(draggedImage) + 32).ToString();
 
@@ -225,5 +259,29 @@ namespace ProjektniZadatak
             this.Visibility = Visibility.Hidden;
             win1.updateCursors();
         }
+
+        private void Obrisi_Sa_Mape(object sender, MouseButtonEventArgs e)
+        {
+            var image = e.Source as Image;
+
+            if (image != null)
+            {
+                mousePosition = e.GetPosition(canvasMap);
+                draggedImage = image;
+
+                string imageloc = (Canvas.GetLeft(draggedImage) + 32).ToString() + (Canvas.GetTop(draggedImage) + 32).ToString();
+                foreach (Animal a in animalsMap)
+                {
+                    if (String.Equals(imageloc, a.locationX + a.locationY))
+                    {
+                        Image i = new Image();
+                        i.Source = a.Image;
+                        canvasMap.Children.Remove(i);
+                        break;
+                    }
+                }
+            }
+        }
+
     }
 }

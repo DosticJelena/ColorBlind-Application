@@ -57,7 +57,7 @@
         </ListView>
          -->
 
-        <Canvas Grid.Column="1" Name="canvasMap" Grid.RowSpan="2"  AllowDrop="True" DragEnter="Canvas_DragEnter" Drop="Canvas_Drop" MouseMove="Canvas_MouseMove" MouseLeftButtonDown="Canvas_MouseLeftButtonDown" MouseLeftButtonUp="Canvas_MouseLeftButtonUp">
+        <Canvas Grid.Column="1" Name="canvasMap" Grid.RowSpan="2"  AllowDrop="True" DragEnter="Canvas_DragEnter" Drop="Canvas_Drop" MouseMove="Canvas_MouseMove" MouseLeftButtonDown="Canvas_MouseLeftButtonDown" MouseLeftButtonUp="Canvas_MouseLeftButtonUp" MouseRightButtonDown="Obrisi_Sa_Mape">
             <Canvas.Background>
                 <ImageBrush ImageSource="map.jpg"/>
             </Canvas.Background>

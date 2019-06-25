@@ -244,62 +244,97 @@ namespace ProjektniZadatak.Prozori
         // Dugmici za dodavanje, azuriranje i brisanje zivotinje iz liste
         private void Dodavanje_Zivotinje(object sender, RoutedEventArgs e)
         {
-            if (pickDatum.SelectedDate == null || TipZivotinje.SelectedItem == null || StTurZivotinje.SelectedItem == null || StUgrZivotinje.SelectedItem == null
+            if (System.Text.RegularExpressions.Regex.IsMatch(godPrihod.Text, "[^0-9]") || System.Text.RegularExpressions.Regex.IsMatch(IdZivotinje.Text, "[^0-9]") || Animals.Any(x => x.Id == IdZivotinje.Text) || pickDatum.SelectedDate == null || TipZivotinje.SelectedItem == null || StTurZivotinje.SelectedItem == null || StUgrZivotinje.SelectedItem == null
                 || IdZivotinje.Text.Equals("") || ImeZivotinje.Text.Equals("") || godPrihod.Text.Equals(""))
             {
                 lDatum.Foreground = new SolidColorBrush(Colors.White);
+                lDatum.Content = " Datum: ";
                 lTip.Foreground = new SolidColorBrush(Colors.White);
+                lTip.Content = " Tip: ";
                 lStTur.Foreground = new SolidColorBrush(Colors.White);
+                lStTur.Content = "Turistički Status: ";
                 lStUgr.Foreground = new SolidColorBrush(Colors.White);
+                lStUgr.Content = "Status Ugroženosti:";
                 lId.Foreground = new SolidColorBrush(Colors.White);
+                lId.Content = "Id: ";
                 lIme.Foreground = new SolidColorBrush(Colors.White);
-                godPrihod.Foreground = new SolidColorBrush(Colors.White);
+                lIme.Content = " Ime: ";
+                lGodPrihod.Foreground = new SolidColorBrush(Colors.White);
+                lGodPrihod.Content = "Godišnji prihod: ";
 
                 if (pickDatum.SelectedDate == null)
                 {
                     lDatum.Foreground = new SolidColorBrush(Colors.Red);
+                    lDatum.Content = " >>> Datum: ";
                 }
 
                 if (TipZivotinje.SelectedItem == null)
                 {
                     lTip.Foreground = new SolidColorBrush(Colors.Red);
+                    lTip.Content = " >>> Tip: ";
                 }
 
                 if (StTurZivotinje.SelectedItem == null)
                 {
                     lStTur.Foreground = new SolidColorBrush(Colors.Red);
+                    lStTur.Content = ">>T. Status: ";
+
                 }
 
                 if (StUgrZivotinje.SelectedItem == null)
                 {
                     lStUgr.Foreground = new SolidColorBrush(Colors.Red);
+                    lStUgr.Content = ">> Ugroženost: ";
                 }
 
                 if (IdZivotinje.Text.Equals(""))
                 {
                     lId.Foreground = new SolidColorBrush(Colors.Red);
+                    lId.Content = " >>> Id: ";
                 }
 
                 if (ImeZivotinje.Text.Equals(""))
                 {
                     lIme.Foreground = new SolidColorBrush(Colors.Red);
+                    lIme.Content = " >>> Ime: ";
                 }
 
-                if (godPrihod.Text.Equals(""))
+                if (godPrihod.Text.Equals("") || System.Text.RegularExpressions.Regex.IsMatch(godPrihod.Text, "[^0-9]"))
                 {
                     lGodPrihod.Foreground = new SolidColorBrush(Colors.Red);
+                    lGodPrihod.Content = ">> Godišnji prihod: ";
+                }
+
+                if (Animals.Any(x => x.Id == IdZivotinje.Text))
+                {
+                    lId.Foreground = new SolidColorBrush(Colors.Red);
+                    lId.Content = ">>> Id već postoji: ";
+                }
+
+                if (System.Text.RegularExpressions.Regex.IsMatch(IdZivotinje.Text, "[^0-9]"))
+                {
+                    lId.Foreground = new SolidColorBrush(Colors.Red);
+                    lId.Content = " >>> Id: ";
                 }
 
                 return;
             }
 
+
             lDatum.Foreground = new SolidColorBrush(Colors.White);
+            lDatum.Content = " Datum: ";
             lTip.Foreground = new SolidColorBrush(Colors.White);
+            lTip.Content = " Tip: ";
             lStTur.Foreground = new SolidColorBrush(Colors.White);
+            lStTur.Content = "Turistički Status: ";
             lStUgr.Foreground = new SolidColorBrush(Colors.White);
+            lStUgr.Content = "Status Ugroženosti:";
             lId.Foreground = new SolidColorBrush(Colors.White);
+            lId.Content = "Id: ";
             lIme.Foreground = new SolidColorBrush(Colors.White);
+            lIme.Content = " Ime: ";
             lGodPrihod.Foreground = new SolidColorBrush(Colors.White);
+            lGodPrihod.Content = "Godišnji prihod: ";
 
             Animal.TuristickiStatus st1 = (Animal.TuristickiStatus)Enum.Parse(typeof(Animal.TuristickiStatus), StTurZivotinje.Text);
             Animal.StatusUgrozenosti st2 = (Animal.StatusUgrozenosti)Enum.Parse(typeof(Animal.StatusUgrozenosti), StUgrZivotinje.Text);
@@ -341,7 +376,9 @@ namespace ProjektniZadatak.Prozori
                 Datum = (DateTime)pickDatum.SelectedDate,
                 Image = bitmapSource,
                 TipZiv = (Tip)TipZivotinje.SelectedItem,
-                EtiketeZiv = lista
+                EtiketeZiv = lista,
+                locationX = "-",
+                locationY = "-"
             });
 
             RightRectangle.Visibility = Visibility.Hidden;
@@ -628,33 +665,54 @@ namespace ProjektniZadatak.Prozori
         // Dugmici za dodavanje etikete i tipa u listu etiketa i listu tipova
         private void Dodaj_Etiketu(object sender, RoutedEventArgs e)
         {
-            if (idEtiketa.Text.Equals("") || opisEtiketa.Text.Equals("") || cbBoja.SelectedColor == null)
+            if (System.Text.RegularExpressions.Regex.IsMatch(idEtiketa.Text, "[^0-9]") || Etikete.Any(x => x.Id.ToString() == idEtiketa.Text) || idEtiketa.Text.Equals("") || opisEtiketa.Text.Equals("") || cbBoja.SelectedColor == null)
             {
                 lIdE.Foreground = new SolidColorBrush(Colors.White);
+                lIdE.Content = "Id: ";
                 lOpisE.Foreground = new SolidColorBrush(Colors.White);
+                lOpisE.Content = "Opis: ";
                 lBoja.Foreground = new SolidColorBrush(Colors.White);
+                lBoja.Content = "Boja: ";
 
                 if (idEtiketa.Text.Equals(""))
                 {
                     lIdE.Foreground = new SolidColorBrush(Colors.Red);
+                    lIdE.Content = ">>> Id: ";
                 }
 
                 if (cbBoja.SelectedColor == null)
                 {
                     lBoja.Foreground = new SolidColorBrush(Colors.Red);
+                    lBoja.Content = ">>> Boja: ";
                 }
 
                 if (opisEtiketa.Text.Equals(""))
                 {
                     lOpisE.Foreground = new SolidColorBrush(Colors.Red);
+                    lOpisE.Content = ">>> Opis: ";
+                }
+
+                if (Etikete.Any(x => x.Id.ToString() == idEtiketa.Text))
+                {
+                    lIdE.Foreground = new SolidColorBrush(Colors.Red);
+                    lIdE.Content = ">>> Id već postoji: ";
+                }
+
+                if (System.Text.RegularExpressions.Regex.IsMatch(idEtiketa.Text, "[^0-9]"))
+                {
+                    lIdE.Foreground = new SolidColorBrush(Colors.Red);
+                    lIdE.Content = ">>> Id: ";
                 }
 
                 return;
             }
 
             lIdE.Foreground = new SolidColorBrush(Colors.White);
+            lIdE.Content = "Id: ";
             lOpisE.Foreground = new SolidColorBrush(Colors.White);
+            lOpisE.Content = "Opis: ";
             lBoja.Foreground = new SolidColorBrush(Colors.White);
+            lBoja.Content = "Boja: ";
 
             Etikete.Add(new Model.Etiketa { Id = double.Parse(idEtiketa.Text), Opis = opisEtiketa.Text, Boja = (Color)cbBoja.SelectedColor });
 
@@ -709,33 +767,54 @@ namespace ProjektniZadatak.Prozori
 
         private void Dodaj_Tip(object sender, RoutedEventArgs e)
         {
-            if (idTipa.Text.Equals("") || imeTipa.Text.Equals("") || Ikonica.Source == null)
+            if (System.Text.RegularExpressions.Regex.IsMatch(idTipa.Text, "[^0-9]") || Tipovi.Any(x => x.Id.ToString() == idTipa.Text) || idTipa.Text.Equals("") || imeTipa.Text.Equals("") || Ikonica.Source == null)
             {
                 lab1.Foreground = new SolidColorBrush(Colors.White);
+                lab1.Content = "Id: ";
                 lab2.Foreground = new SolidColorBrush(Colors.White);
+                lab2.Content = "Ime: ";
                 lab4.Foreground = new SolidColorBrush(Colors.White);
+                lab4.Content = "Ikonica: ";
 
                 if (idTipa.Text.Equals(""))
                 {
                     lab1.Foreground = new SolidColorBrush(Colors.Red);
+                    lab1.Content = ">>> Id: ";
                 }
 
                 if (Ikonica.Source == null)
                 {
                     lab4.Foreground = new SolidColorBrush(Colors.Red);
+                    lab4.Content = ">>> Ikonica: ";
                 }
 
                 if (imeTipa.Text.Equals(""))
                 {
                     lab2.Foreground = new SolidColorBrush(Colors.Red);
+                    lab2.Content = ">>> Ime: ";
+                }
+
+                if (Tipovi.Any(x => x.Id.ToString() == idTipa.Text))
+                {
+                    lab1.Foreground = new SolidColorBrush(Colors.Red);
+                    lab1.Content = ">>> Id već postoji: ";
+                }
+
+                if (System.Text.RegularExpressions.Regex.IsMatch(idTipa.Text, "[^0-9]"))
+                {
+                    lab1.Foreground = new SolidColorBrush(Colors.Red);
+                    lab1.Content = ">>> Id: ";
                 }
 
                 return;
             }
 
             lab1.Foreground = new SolidColorBrush(Colors.White);
+            lab1.Content = "Id: ";
             lab2.Foreground = new SolidColorBrush(Colors.White);
+            lab2.Content = "Ime: ";
             lab4.Foreground = new SolidColorBrush(Colors.White);
+            lab4.Content = "Ikonica: ";
 
             Uri myUri = new Uri(Ikonica.Source.ToString(), UriKind.RelativeOrAbsolute);
             BitmapDecoder decoder = BitmapDecoder.Create(myUri, BitmapCreateOptions.PreservePixelFormat, BitmapCacheOption.Default);
@@ -747,6 +826,7 @@ namespace ProjektniZadatak.Prozori
             idTipa.Text = "";
             imeTipa.Text = "";
             opisTipa.Text = "";
+
             PanelTip.Visibility = Visibility.Hidden;
             btnE.BorderThickness = new Thickness(5, 5, 5, 5);
             dozE = true;

@@ -479,7 +479,7 @@
             </Grid.Background>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="3*"/>
                 <ColumnDefinition Width="2"/>
                 <ColumnDefinition Width="1*"/>
                 <ColumnDefinition Width="50"/>
@@ -497,22 +497,42 @@
 
             <Rectangle Grid.Column="2" Grid.Row="1" Grid.RowSpan="4" Fill="#FFCBCBCB"></Rectangle>
             <TextBlock Name="korak1" Grid.RowSpan="3" Grid.Row="2" Grid.Column="1" Padding="0,0,10,0" Foreground="#FFFAFAFA" FontSize="24" FontFamily="Microsoft YaHei Light" TextWrapping="Wrap">
-                Dobrodošli,
-                Za početak, potrebno je dodati novi tip životinje kako bi se on pojavio kao opcija pri kreiranju nove životinje.
-                Kliknite na dugme "Novi Tip" u donjem levom uglu aplikacije.
+                <TextBlock Padding="0,0,10,0" TextWrapping="Wrap">
+                    Dobrodošli,
+                </TextBlock>
+                <TextBlock Padding="0,0,10,0" TextWrapping="Wrap">
+                    Za početak, potrebno je dodati novi tip životinje kako bi se on pojavio kao opcija pri kreiranju nove životinje.
+                </TextBlock>
+                <TextBlock Padding="0,0,10,0" TextWrapping="Wrap">
+                    Kliknite na dugme "Novi Tip" u donjem levom uglu aplikacije.
+                </TextBlock>
             </TextBlock>
             <TextBlock Name="korak2" Grid.RowSpan="3" Grid.Row="2" Grid.Column="1" Padding="0,0,10,0" Foreground="#FFFAFAFA" FontSize="24" FontFamily="Microsoft YaHei Light" TextWrapping="Wrap">
-                Pored tipa, životinjama je moguće dodati i etikete. Etiketa predstavlja osobinu životinje koja je označena određenom bojom i 
-                opisom. Za dodavanje nove etikete kliknite dugme "Nova Etiketa" u donjem levom uglu aplikacije.
+                <TextBlock Padding="0,0,10,0" TextWrapping="Wrap">
+                    Pored tipa, životinjama je moguće dodati i etikete.
+                </TextBlock>
+                <TextBlock Padding="0,0,10,0" TextWrapping="Wrap">
+                    Etiketa predstavlja osobinu životinje koja je označena određenom bojom i 
+                opisom.
+                </TextBlock>
+                <TextBlock Padding="0,0,10,0" TextWrapping="Wrap">
+                    Za dodavanje nove etikete kliknite dugme "Nova Etiketa" u donjem levom uglu aplikacije.
+                </TextBlock>
             </TextBlock>
             <TextBlock Name="korak3" Grid.RowSpan="3" Grid.Row="2" Grid.Column="1" Padding="0,0,10,0" Foreground="#FFFAFAFA" FontSize="24" FontFamily="Microsoft YaHei Light" TextWrapping="Wrap">
                 Uz dodate opcije za tip i etiketu, konačno možete napraviti novu životinju.
                 Kliknite na dugme "Nova Životinja" kako biste otvorili formu za unos nove životinje.
             </TextBlock>
             <TextBlock Name="korak4" Grid.RowSpan="3" Grid.Row="2" Grid.Column="1" Padding="0,0,10,0" Foreground="#FFFAFAFA" FontSize="24" FontFamily="Microsoft YaHei Light" TextWrapping="Wrap">
-                Uspešno ste kreirali novu životinju. Više informacija o samoj aplikaciji možete pronaći u sekciji "Pomoć".
-                
-                Sada možete pokrenuti aplikaciju na dugme "Pokrenite".
+                <TextBlock Padding="0,0,10,0" TextWrapping="Wrap">
+                    Uspešno ste kreirali novu životinju.
+                </TextBlock>
+                <TextBlock Padding="0,0,10,0" TextWrapping="Wrap">
+                    Više informacija o samoj aplikaciji možete pronaći u sekciji "Pomoć".
+                </TextBlock>
+                <TextBlock Padding="0,0,10,0" TextWrapping="Wrap">
+                    Sada možete pokrenuti aplikaciju na dugme "Pokrenite".
+                </TextBlock>
             </TextBlock>
             <Label Name="dobLab1" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" Foreground="#FFE58C67" FontFamily="Microsoft YaHei Light" FontSize="27" HorizontalAlignment="Center" VerticalAlignment="Center">Korak 1 - dodavanje novog tipa</Label>
             <Label Name="dobLab2" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" Foreground="#FFE58C67" FontFamily="Microsoft YaHei Light" FontSize="27" HorizontalAlignment="Center" VerticalAlignment="Center">Korak 2 - dodavanje nove etikete</Label>
